@@ -440,7 +440,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
     border-radius: 40px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-    padding: 60px 10px;
+    padding: 40px 15px;
     /* display: none; */
 }
 
@@ -467,6 +467,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 
 .dashboard .content .sub{
     font-weight: 400;
+    color: rgb(126, 126, 126);
 }
 
 .dashboard .content .amout{
