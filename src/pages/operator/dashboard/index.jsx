@@ -79,7 +79,7 @@ const Dashboards = () => {
 			</div>
 
 			<div className="row justify-content-between">
-				<div className="col-lg-5">
+				<div className="col-lg-6">
 					<h1 className="heading-1 pb-lg-5 pt-5 fw-bolder">
 						Laporan Keuangan
 					</h1>
@@ -133,7 +133,7 @@ const Dashboards = () => {
 		</div>
 	)
 
-	return <Dashboard content={element} active="dashboard" />
+	return <Dashboard content={element} active="dashboard"/>
 }
 
 export default Dashboards;

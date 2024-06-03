@@ -38,9 +38,9 @@ const DataCages = () => {
           </div>
         </div>
 
-        <div className="col-md-2">
+        <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <button className="btn btn-primary">Create&nbsp;Cage</button>
+            <button className="btn btn-primary">Create Cage</button>
           </div>
         </div>
       </div>
