@@ -142,9 +142,10 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 .login .row .login-avatar .img-fluid{
     display: block;
     margin: auto;
-    min-width: 100%;
+    width: 50%;
     min-height: 100vh;
     object-fit: cover;
+    position: fixed;
 }
 
 .login .row .login-form{
@@ -160,8 +161,6 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 .login .row .login-form form{
     max-width: 466px;
     width: 100%;
-    margin-bottom: 50px;
-     padding-top: 100px;
 }
 
 .login .row .login-form .logo{
@@ -169,7 +168,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 }
 
 .login .row .login-form .logo .img-logo{
-    height: 106px;
+    width: 80%;
     display: block;
     margin: auto;
     margin-bottom: 30px;
@@ -234,7 +233,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 /* [ SIDE BAR ] */
 .left-sidebar{
     background-color: var(--primary-color);
-    width: 300px;
+    width: 22%;
     position: absolute;
     transition: all 0.2s ease-in;
     height: 100vh;
@@ -245,7 +244,8 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
     overflow: hidden;
     overflow-y: auto;
     padding: 0 16px 0 28px;
-    max-height: calc(100vh - 400px);
+    max-height: calc(100vh - 350px);
+    margin-top: -40px;
 }
 
 
@@ -275,8 +275,8 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 }
 
 .brand-logo{
-    min-height: 72px;
-    padding: 0 28px
+    margin-top: 25px;
+    padding: 0 32px
 }
 
 .left-sidebar .brand-logo .minimize-btn{
@@ -288,16 +288,17 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 .left-sidebar .brand-logo .minimize-btn .btn{
     background-color: rgba(255, 242, 229, 0.3);
     position: absolute;
-    padding: 8px 12px ;
-    font-size: 25px;
+    padding: 5px 9px ;
+    font-size: 20px;
     right: -18px;
     color: var(--yellow-color);
     transition: all 0.5s ease-in-out;
-    border-color: var(--secondary-color) !important;
+    /* border-color: var(--secondary-color) !important; */
 }
 
 .left-sidebar .brand-logo .minimize-btn .btn:focus{
     background-color: rgba(255, 242, 229, 0.3) !important;
+    border-color: transparent !important;
 }
 
 .left-sidebar .brand-logo .logo-img{
@@ -307,7 +308,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 }
 
 .left-sidebar .brand-logo .logo-img .img-fluid{
-    width: 50px;
+    width: 35px;
 }
 
 .left-sidebar .brand-logo .logo-img span{
@@ -333,16 +334,22 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 }
 
 .left-sidebar .profile .content .name{
-    margin-top: 18px;
-    font-size: 1.3rem;
+    margin-top: 10px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--light-color);
 }
 
 .left-sidebar .profile .content .role{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
     color: var(--light-color);
+}
+
+.avatar-profile {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .sidebar-nav ul .sidebar-item{
@@ -362,11 +369,10 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
     border-radius: 12px;
     gap: 10px;
     text-decoration: none;
-    margin-bottom: 4px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.2px;
-    padding: 17px 16px;
+    padding: 10px 15px;
 }
 
 .sidebar-nav ul .sidebar-item .sidebar-link span:first-child{
@@ -419,7 +425,8 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 
 #main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"] .left-sidebar .brand-logo .minimize-btn .btn{
     background-color: var(--secondary-color);
-    right: -90px;
+    right: -105px;
+    border: 1px solid #FFCC4A !important;
 }
 
 /* [CONTENT WRAPPER] */
@@ -427,7 +434,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
     background-color: var(--light-color);
     position: absolute;
     right: 0;
-    width: calc(100vw - 300px);
+    width: 78%;
     min-height: 100vh;
     border: 10px solid var(--primary-color);
     border-radius: 40px;
@@ -438,7 +445,7 @@ input[type="checkbox"]:active, input[type="checkbox"]:focus{
 }
 
 #main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"] .content-wrapper{
-    width: 100vw;
+    width: 100%;
 }
 
 /* [DASHBOARD] */

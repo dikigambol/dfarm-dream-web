@@ -1,4 +1,4 @@
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export function setTokenInCookie(token) {
     const expiryDate = new Date();
@@ -26,6 +26,6 @@ export function deleteAllCookies() {
 }
 
 export function decodeToken() {
-    var decoded = jwt_decode(getTokenFromCookie());
+    var decoded = jwtDecode(getTokenFromCookie());
     return decoded
 }
