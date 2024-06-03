@@ -1,14 +1,16 @@
+import jwt_decode from "jwt-decode";
+
 export function setTokenInCookie(token) {
-    const expiresIn = 12 * 60 * 60 * 1000;
-    const expiryDate = new Date(Date.now() + expiresIn);
-    document.cookie = `__fvc2yu=${token}; expires=${expiryDate.toUTCString()}; path=/`;
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 1);
+    document.cookie = `token=${token}; expires=${expiryDate.toUTCString()}; path=/`;
 }
 
 export function getTokenFromCookie() {
     const cookies = document.cookie.split(';');
     for (const cookie of cookies) {
         const [name, value] = cookie.trim().split('=');
-        if (name === '__fvc2yu') {
+        if (name === 'token') {
             return value;
         }
     }
@@ -21,4 +23,9 @@ export function deleteAllCookies() {
         const [name, _] = cookie.trim().split('=');
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     }
+}
+
+export function decodeToken() {
+    var decoded = jwt_decode(getTokenFromCookie());
+    return decoded
 }

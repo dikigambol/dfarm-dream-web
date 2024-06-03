@@ -3,13 +3,13 @@ import { getTokenFromCookie } from "./setToken"
 export const headers = {
     headers: {
         "Content-type": "application/json",
-        "authorization": "Bearer " + getTokenFromCookie()
+        "Authorization":  getTokenFromCookie()
     },
 }
 
 export const multipartheaders = {
     headers: {
         "Content-type": "multipart/form-data",
-        "authorization": "Bearer " + getTokenFromCookie()
+        "Authorization":  getTokenFromCookie()
     },
 }

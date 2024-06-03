@@ -1,15 +1,11 @@
 import { useState } from "react";
 import axios from "../API";
 import swal from "sweetalert";
-import {
-  deleteAllCookies,
-  getTokenFromCookie,
-  setTokenInCookie,
-} from "../../utils/setToken";
+import { setTokenInCookie } from "../../utils/setToken";
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
-  const [isAuth, setIsAuth] = useState(undefined);
+  const [tokenStatus, setTokenStatus] = useState(undefined);
 
   const login = async (payload) => {
     setLoading(true);
@@ -17,7 +13,7 @@ export const useLogin = () => {
       const res = await axios.post("login", payload);
       setTokenInCookie(res.data.token);
       setLoading(false);
-      window.location.replace("/dashboard-operator");
+      window.location.replace("/home");
     } catch (error) {
       setLoading(false);
       swal({
@@ -30,16 +26,13 @@ export const useLogin = () => {
     }
   };
 
-  const verifyAuth = async () => {
+  const verifyToken = async (token) => {
     try {
-      let token = getTokenFromCookie();
-      const res = await axios.post("verify-token", { authToken: token });
+      const res = await axios.post("verify", { authToken: token });
       if (res.data.status == "valid signature") {
-        setIsAuth(true);
+        setTokenStatus(true);
       } else {
-        setIsAuth(false);
-        window.location.replace("/");
-        deleteAllCookies();
+        setTokenStatus(false);
       }
     } catch (error) {
       console.error(error);
@@ -48,8 +41,8 @@ export const useLogin = () => {
 
   return {
     login,
-    verifyAuth,
+    verifyToken,
     loading,
-    isAuth,
+    tokenStatus,
   };
 };

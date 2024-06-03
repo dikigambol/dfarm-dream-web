@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Dashboard_model } from '../../../service/dashboard_model'
@@ -12,7 +11,7 @@ const Dashboards = () => {
 	const editData = (id) => {
 		console.log(id);
 	}
-	
+
 	const deleteData = (id) => {
 		console.log(id);
 	}
@@ -31,13 +30,11 @@ const Dashboards = () => {
 
 	const element = (
 		<div className="dashboard">
-
 			<div className="row">
 				<h1 className="heading-1 mb-4 fw-bolder">
 					Informasi Peternakan
 				</h1>
 			</div>
-
 			<div className="row px-2">
 				<div className="col-lg-4 pe-lg-0">
 					<div className="card p-2 border-0">
@@ -52,7 +49,6 @@ const Dashboards = () => {
 						</div>
 					</div>
 				</div>
-
 				<div className="col-lg-4 p-lg-0">
 					<div className="card p-2 border-0">
 						<div className="card-body d-flex align-items-center">
@@ -129,41 +125,15 @@ const Dashboards = () => {
 						highlightOnHover: true,
 						striped: true,
 						pagination: true,
-						edit: {status: true, callback: editData},
-						delete: {status: true, callback: deleteData},
+						edit: { status: true, callback: editData },
+						delete: { status: true, callback: deleteData },
 					}}
 				/>
 			</div>
 		</div>
-
 	)
 
-	return <Dashboard content={element} active="dashboard"/>
-=======
-import React, { useEffect, Fragment } from 'react'
-import { Link } from 'react-router-dom';
-import { useLogin } from '../../../services/auth'
-import LoaderPages from '../../../components/LoaderPages';
-
-export default function DashboardOperator() {
-
-  const { verifyAuth, isAuth } = useLogin()
-
-  useEffect(() => {
-    verifyAuth()
-  }, [])
-
-  return (
-    <Fragment>
-      {isAuth ?
-        <>
-          <h1>Selamat Datang, Operator</h1>
-        </>
-        : <LoaderPages />
-      }
-    </Fragment>
-  )
->>>>>>> d836e887b46332901c070ff930021bfe82360012
+	return <Dashboard content={element} active="dashboard" />
 }
 
 export default Dashboards;
