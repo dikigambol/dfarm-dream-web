@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Dashboard_model } from '../../../service/dashboard_model'
-import Home from '../../../components/home'
+import Dashboard from '../../../components/dashboard'
 import DataTables from '../../../components/table'
 
-const Homes = () => {
+const Dashboards = () => {
 
 	const { get_all, dashboard } = Dashboard_model()
 
@@ -137,7 +137,7 @@ const Homes = () => {
 
 	)
 
-	return <Home content={element} active="home"/>
+	return <Dashboard content={element} active="dashboard"/>
 }
 
-export default Homes;
+export default Dashboards;
