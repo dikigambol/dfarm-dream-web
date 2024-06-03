@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Dashboard_model } from '../../../service/dashboard_model'
@@ -83,7 +82,7 @@ const Dashboards = () => {
 			</div>
 
 			<div className="row justify-content-between">
-				<div className="col-lg-5">
+				<div className="col-lg-6">
 					<h1 className="heading-1 pb-lg-5 pt-5 fw-bolder">
 						Laporan Keuangan
 					</h1>
@@ -139,31 +138,6 @@ const Dashboards = () => {
 	)
 
 	return <Dashboard content={element} active="dashboard"/>
-=======
-import React, { useEffect, Fragment } from 'react'
-import { Link } from 'react-router-dom';
-import { useLogin } from '../../../services/auth'
-import LoaderPages from '../../../components/LoaderPages';
-
-export default function DashboardOperator() {
-
-  const { verifyAuth, isAuth } = useLogin()
-
-  useEffect(() => {
-    verifyAuth()
-  }, [])
-
-  return (
-    <Fragment>
-      {isAuth ?
-        <>
-          <h1>Selamat Datang, Operator</h1>
-        </>
-        : <LoaderPages />
-      }
-    </Fragment>
-  )
->>>>>>> d836e887b46332901c070ff930021bfe82360012
 }
 
 export default Dashboards;
