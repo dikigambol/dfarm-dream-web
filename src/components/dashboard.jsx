@@ -53,7 +53,6 @@ const Dashboard = (props) => {
                             <span>Farm</span>
                             <span>Dream</span>
                         </Link>
-                        
                         <div className="minimize-btn">
                             <button className="btn sidebartoggler" id="sidebarCollapse" onClick={toggleSidebar}>
                                 <Icon icon="ant-design:menu-outlined" />
@@ -63,12 +62,11 @@ const Dashboard = (props) => {
 
                     <div className="profile">
                         <div className="content">
-                            <img src="./user-1.jpg" alt="" className="img-fluid" />
-                            <h6 className="name">John Doe</h6>
-                            <span className="role">Admin</span>
+                            <img src="./user-1.jpg" alt="" className="avatar-profile" />
+                            <h6 className="name mb-0">John Doe</h6>
+                            <span className="role mt-0">Admin</span>
                         </div>
                     </div>
-
                     <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
                         <ul id="sidebarnav">
                             <li className="sidebar-item">
@@ -110,7 +108,6 @@ const Dashboard = (props) => {
                     </nav>
                 </div>
             </aside>
-
             <div className="content-wrapper">
                 <div className="container-fluid">
                     {props.content}
