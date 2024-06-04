@@ -1,20 +1,37 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Dashboard_model } from '../../../service/dashboard_model'
 import Dashboard from '../../../components/dashboard'
 import DataTables from '../../../components/table'
+import { deleteAllCookies, getTokenFromCookie } from '../../../utils/setToken'
+import { useLogin } from '../../../service/auth'
 
 const Dashboards = () => {
+
+	let token = getTokenFromCookie()
+	const { verifyToken, tokenStatus } = useLogin()
 
 	const { get_all, dashboard } = Dashboard_model()
 
 	const editData = (id) => {
 		console.log(id);
 	}
-	
+
 	const deleteData = (id) => {
 		console.log(id);
 	}
+
+	useEffect(() => {
+		async function tokenLoad() {
+			await verifyToken(token)
+		}
+		tokenLoad()
+		if (tokenStatus == false) {
+			deleteAllCookies()
+			window.location.replace('/')
+		}
+	}, [token, tokenStatus])
+
 
 
 	useEffect(() => {
@@ -29,70 +46,61 @@ const Dashboards = () => {
 	];
 
 	const element = (
-		<div className="dashboard">
-
-			<div className="row">
-				<h1 className="heading-1 mb-4 fw-bolder">
-					Informasi Peternakan
-				</h1>
-			</div>
-
-			<div className="row px-2">
-				<div className="col-lg-4 pe-lg-0">
-					<div className="card p-2 border-0">
-						<div className="card-body d-flex align-items-center">
-							<div className="icon">
-								<Icon icon="mdi:users" className="display-6" />
-							</div>
-							<div className="content">
-								<h6 className="sub">Investor</h6>
-								<h3 className="amout">100</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="col-lg-4 p-lg-0">
-					<div className="card p-2 border-0">
-						<div className="card-body d-flex align-items-center">
-							<div className="icon">
-								<Icon icon="fe:cage" className="display-6" />
-							</div>
-							<div className="content">
-								<h6 className="sub">Kandang</h6>
-								<h3 className="amout">100</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div className="col-lg-4 ps-lg-0">
-					<div className="card p-2 border-0">
-						<div className="card-body d-flex align-items-center">
-							<div className="icon">
-								<Icon icon="healthicons:animal-chicken" className="display-6" />
-							</div>
-							<div className="content">
-								<h6 className="sub">Ayam</h6>
-								<h3 className="amout">500</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div className="row justify-content-between">
-				<div className="col-lg-6">
-					<h1 className="heading-1 pb-lg-5 pt-5 fw-bolder">
-						Laporan Keuangan
-					</h1>
-				</div>
-				<div className="col-lg-6 ">
-					<form action="" className="py-4">
+		<Fragment>
+			{/* {tokenStatus ? */}
+			<div className="dashboard">
+				<div className="row m-2 mb-0">
+					<h3 className="mb-4 fw-bolder">
+						Informasi Peternakan
+					</h3>
+					<div className="col-lg-12 card-thumbnail">
 						<div className="row">
-							<div className="col-md-6">
-								<div className="mb-3">
-									<label htmlFor="year" className="form-label">Tahun</label>
+							<div className="col-lg-4 pe-lg-0 mb-lg-0 mb-3">
+								<div className="d-flex align-items-center">
+									<div className="icon">
+										<Icon icon="mdi:users" className="display-6" />
+									</div>
+									<div className="content">
+										<h6 className="sub">Investor</h6>
+										<h2 className="amout">100</h2>
+									</div>
+								</div>
+							</div>
+							<div className="col-lg-4 p-lg-0 mb-lg-0 mb-3">
+								<div className="d-flex align-items-center">
+									<div className="icon">
+										<Icon icon="fe:cage" className="display-6" />
+									</div>
+									<div className="content">
+										<h6 className="sub">Kandang</h6>
+										<h2 className="amout">100</h2>
+									</div>
+								</div>
+							</div>
+							<div className="col-lg-4 ps-lg-0 mb-lg-0">
+								<div className="d-flex align-items-center">
+									<div className="icon">
+										<Icon icon="healthicons:animal-chicken" className="display-6" />
+									</div>
+									<div className="content">
+										<h6 className="sub">Ayam</h6>
+										<h2 className="amout">500</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="row m-0 justify-content-between mt-4 mb-3">
+					<div className="col-lg-6">
+						<h3 className="fw-bolder mb-lg-0 mb-3">
+							Laporan Keuangan
+						</h3>
+					</div>
+					<div className="col-lg-6">
+						<div className="row">
+							<div className="col-md-6 m-lg-0 mb-3">
+								<div className="mb-0">
 									<select id="year" className="form-select form-control" defaultValue="2024">
 										<option value="2025">2025</option>
 										<option value="2024">2024</option>
@@ -102,10 +110,8 @@ const Dashboards = () => {
 									</select>
 								</div>
 							</div>
-
-							<div className="col-md-6">
-								<div className="mb-3">
-									<label htmlFor="cage" className="form-label">Kandang</label>
+							<div className="col-md-6 m-lg-0">
+								<div className="mb-0">
 									<select id="cage" className="form-select form-control" defaultValue="Kandang 1">
 										<option value="Kandang 1">Kandang 1</option>
 										<option value="Kandang 2">Kandang 2</option>
@@ -116,28 +122,27 @@ const Dashboards = () => {
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
+				</div>
+				<div className="m-lg-0 p-2">
+					<DataTables
+						columns={columns}
+						datas={dashboard}
+						options={{
+							highlightOnHover: true,
+							striped: true,
+							pagination: true,
+							edit: { status: true, callback: editData },
+							delete: { status: true, callback: deleteData },
+						}}
+					/>
 				</div>
 			</div>
-
-			<div className="row">
-				<DataTables
-					columns={columns}
-					datas={dashboard}
-					options={{
-						highlightOnHover: true,
-						striped: true,
-						pagination: true,
-						edit: {status: true, callback: editData},
-						delete: {status: true, callback: deleteData},
-					}}
-				/>
-			</div>
-		</div>
-
+			{/* : null} */}
+		</Fragment>
 	)
 
-	return <Dashboard content={element} active="dashboard"/>
+	return <Dashboard content={element} active="dashboard" />
 }
 
 export default Dashboards;
