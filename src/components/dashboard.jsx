@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react/dist/iconify.js'
 // import main from '../lip/main';
 import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteAllCookies, getTokenFromCookie } from '../utils/setToken';
 import { useLogin } from '../service/auth';

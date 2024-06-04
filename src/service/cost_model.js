@@ -64,6 +64,8 @@ export const Cost_model = () => {
         data: Array.from({ length: 100 }, () => ({
             id: Math.floor(Math.random() * 1000),
             fee: names[Math.floor(Math.random() * names.length)],
+            date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toLocaleDateString(),
+            amount: `Rp. ${Math.floor(Math.random() * 999)},000`,
             status: Math.random() > 0.5 ? '<span class="badge badge-success rounded-pill">Active</span>' : '<span class="badge badge-fail rounded-pill">Not Active</span>',
         }))
     }

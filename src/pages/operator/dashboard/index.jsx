@@ -1,12 +1,12 @@
 import { Fragment, useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Dashboard_model } from '../../../service/dashboard_model'
-import Dashboard from '../../../components/dashboard'
+import Home from '../../../components/home'
 import DataTables from '../../../components/table'
 import { deleteAllCookies, getTokenFromCookie } from '../../../utils/setToken'
 import { useLogin } from '../../../service/auth'
 
-const Dashboards = () => {
+const Homes = () => {
 
 	let token = getTokenFromCookie()
 	const { verifyToken, tokenStatus } = useLogin()
@@ -142,7 +142,7 @@ const Dashboards = () => {
 		</Fragment>
 	)
 
-	return <Dashboard content={element} active="dashboard" />
+	return <Home content={element} active="home"/>
 }
 
-export default Dashboards;
+export default Homes;
