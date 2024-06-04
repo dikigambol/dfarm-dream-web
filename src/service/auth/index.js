@@ -10,10 +10,10 @@ export const useLogin = () => {
   const login = async (payload) => {
     setLoading(true);
     try {
-      const res = await axios.post("login", payload);
+      const res = await axios.post("v1/auth/login", payload);
       setTokenInCookie(res.data.token);
       setLoading(false);
-      window.location.replace("/home");
+      window.location.replace("/dashboard");
     } catch (error) {
       setLoading(false);
       swal({
@@ -28,7 +28,7 @@ export const useLogin = () => {
 
   const verifyToken = async (token) => {
     try {
-      const res = await axios.post("verify", { authToken: token });
+      const res = await axios.post("v1/app/get_token", { authToken: token });
       if (res.data.status == "valid signature") {
         setTokenStatus(true);
       } else {

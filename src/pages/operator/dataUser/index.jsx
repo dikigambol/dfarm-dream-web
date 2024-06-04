@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import { Users_model } from '../../../service/users_model'
 import Dashboard from '../../../components/dashboard'
 import DataTables from '../../../components/table'
@@ -39,7 +40,7 @@ const DataUser = () => {
 
         <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <button className="btn btn-primary">Create User</button>
+            <Link to="/form-users/add" type="button" className="btn btn-primary">Create User</Link>
           </div>
         </div>
       </div>

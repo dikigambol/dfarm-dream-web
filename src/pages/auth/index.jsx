@@ -1,11 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useLogin } from '../../service/auth'
 import { getTokenFromCookie } from '../../utils/setToken'
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Auth() {
 
 	const { login, loading } = useLogin()
 	const [isAuth, setIsAuth] = useState(false)
+	const [captcha, setCaptcha] = useState("")
+
 	const [form, setForm] = useState({
 		username: "",
 		password: ""
@@ -20,9 +23,23 @@ export default function Auth() {
 		}))
 	}
 
+	const handleRecaptcha = (value) => {
+		setCaptcha(value)
+	}
+
 	const HandleLogin = (e) => {
 		e.preventDefault()
-		login(form)
+		if (captcha != "") {
+			login(form)
+		} else {
+			swal({
+				title: "Require Recaptcha!",
+				text: "menutup jendela...",
+				icon: "warning",
+				timer: 3000,
+				buttons: false,
+			})
+		}
 	}
 
 	useEffect(() => {
@@ -39,7 +56,7 @@ export default function Auth() {
 					<div className="container-fluid">
 						<div className="row ">
 							<div className="col-lg-6 d-lg-block d-none login-avatar p-0">
-								<img src="login-avatar.png" alt="Login Page" className="img-fluid"/>
+								<img src="login-avatar.png" alt="Login Page" className="img-fluid" />
 							</div>
 							<div className="col-lg-6 login-form">
 								<form onSubmit={HandleLogin}>
@@ -54,7 +71,8 @@ export default function Auth() {
 											id="username"
 											name="username"
 											value={form.username}
-											onChange={handleInput} />
+											onChange={handleInput}
+											required />
 									</div>
 									<div className="mb-4">
 										<label htmlFor="password" className="form-label">Password</label>
@@ -64,13 +82,17 @@ export default function Auth() {
 											name="password"
 											value={form.password}
 											onChange={handleInput}
-										/>
+											required />
 									</div>
+										<ReCAPTCHA
+											sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
+											onChange={handleRecaptcha}
+										/>
 									<div className="mb-4 form-check">
 										<input type="checkbox" className="form-check-input" id="re_remember" />
 										<label className="form-check-label" htmlFor="re_remember">Ingat Saya</label>
 									</div>
-									<button type="submit" className="btn btn-primary w-100" >  Masuk</button>
+									<button type="submit" className="btn btn-primary w-100" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
 								</form>
 							</div>
 						</div>
