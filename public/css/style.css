@@ -82,18 +82,8 @@ ul {
     background-position: right 16px center
 }
 
-<<<<<<< HEAD
 .bg-transparant{
     background-color: transparent;
-=======
-/* 
-input[type="text"], input[type="password"]{
-    box-shadow: none;
-    padding: 17px 26px;
-    outline: none;
-    border-color: var(--primary-color);
-    border-width: 2px;
->>>>>>> 1dce2847f6d872dcfedcae1883685b6ec8fb1f2d
 }
 
 .tap{
@@ -440,12 +430,7 @@ input[type="text"], input[type="password"]{
     border-radius: 12px;
     gap: 10px;
     text-decoration: none;
-<<<<<<< HEAD
-    margin-bottom: 4px;
-    font-size: 16px;
-=======
     font-size: 14px;
->>>>>>> e32cc88f9c2f5fc970d030c8414df854bffbf25a
     font-weight: 500;
     letter-spacing: 0.2px;
     padding: 10px 15px;
@@ -478,13 +463,9 @@ input[type="text"], input[type="password"]{
     color: var(--primary-color);
 }
 
-<<<<<<< HEAD
-.sidebar-nav ul .sidebar-item .sidebar-link .iconify{
-=======
 
 
 .sidebar-nav ul .sidebar-item .sidebar-link .iconify {
->>>>>>> 1dce2847f6d872dcfedcae1883685b6ec8fb1f2d
     color: var(--yellow-color);
     opacity: 1;
     font-size: 25px;

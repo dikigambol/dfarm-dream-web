@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react/dist/iconify.js'
-// import main from '../lip/main';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 

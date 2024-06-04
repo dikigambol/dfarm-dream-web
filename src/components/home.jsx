@@ -47,7 +47,7 @@ const Home = (props) => {
             <aside className="left-sidebar">
                 <div className="sidebar">
                     <div className="brand-logo d-flex align-items-center justify-content-between">
-                        <Link to={'/dashboard'} className="text-nowrap logo-img">
+                        <Link to={'/home'} className="text-nowrap logo-img">
                             <img src="./logo.svg" alt="Logo" className="img-fluid" />
                             <span>Farm</span>
                             <span>Dream</span>
@@ -103,8 +103,22 @@ const Home = (props) => {
                 </div>
             </aside>
 
-            <div className="content-wrapper">
-                <div className="container-fluid">
+            <div className="right-side">
+                <div className='menu-header mb-2'>
+                    <div className="brand-logo d-flex align-items-center justify-content-between">
+                        <Link to={'/home'} className="text-nowrap logo-img">
+                            <img src="./logo.svg" alt="Logo" className="img-fluid" />
+                            <span>Farm</span>
+                            <span>Dream</span>
+                        </Link>
+                        <div className="responsive-menu-btn">
+                            <button className="btn sidebartoggler" id="sidebarCollapse" onClick={toggleSidebar}>
+                                <Icon icon="ant-design:menu-outlined" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className="content-wrapper">
                     {props.content}
                 </div>
             </div>
