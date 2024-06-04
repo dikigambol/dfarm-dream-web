@@ -100,10 +100,10 @@ ul {
 }
 
 .btn {
-    box-shadow: none;
-    outline: none;
-    border-color: var(--marron-color);
-    padding: 22px 26px;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    padding: 10px 20px;
     font-weight: 600;
 }
 
@@ -120,9 +120,9 @@ ul {
 }
 
 .badge {
-    padding: 12px 24px;
+    padding: 10px 14px;
     font-weight: 500;
-    font-size: 0.84rem;
+    font-size: 0.75rem;
 }
 
 .badge.badge-success {
@@ -310,7 +310,7 @@ ul {
 
 .brand-logo {
     margin-top: 25px;
-    padding: 0 32px
+    padding: 0 28px
 }
 
 .brand-logo .minimize-btn {
@@ -324,10 +324,9 @@ ul {
     position: absolute;
     padding: 5px 9px;
     font-size: 20px;
-    right: -5px;
+    right: -14px;
     color: var(--yellow-color);
     transition: all 0.5s ease-in-out;
-    /* border-color: var(--secondary-color) !important; */
 }
 
 .brand-logo .responsive-menu-btn {
@@ -502,7 +501,8 @@ ul {
     border: 10px solid var(--primary-color);
     border-radius: 40px;
     overflow: hidden;
-    padding: 20px;
+    padding: 40px;
+    min-height: 100vh;
 }
 
 #main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"] .right-side {
@@ -511,6 +511,10 @@ ul {
 
 #main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"] .left-sidebar {
     width: 0%;
+}
+
+#main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"] .content-wrapper {
+    min-height: calc(100vh - 68px);
 }
 
 /* [DASHBOARD] */

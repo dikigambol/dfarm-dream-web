@@ -1,9 +1,12 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-unused-vars */
 import { Fragment, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Dashboard from '../../../components/dashboard'
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { useUser } from '../../../service/users'
 import { validateFile } from '../../../utils/validasiFile'
+import swal from 'sweetalert';
 
 
 const initialState = {
@@ -78,101 +81,93 @@ const FormUsers = () => {
         if (userId != "add") {
             getDetailUser(userId, "form-users")
         }
-    }, [userId])
+    }, [getDetailUser, userId])
 
 
     const element = (
-        <Fragment>
-            <div className="dashboard">
-                <div className="row">
-                    <h1 className="heading-1 mb-4 fw-bolder">
-                        Add Investor.
-                    </h1>
-                </div>
-                <div className="row justify-content-between">
-                    <div className="col-lg-12 ">
-                        <form onSubmit={handleSubmit} className="py-4">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="photo" className="form-label"><Icon icon="mdi:account-box" className="display-7" />Foto  Profil</label>
-                                        <input type='file' id="foto" className='form-control' onChange={handlerInput} name="photo" placeholder='350xxxxx' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:account-card-details" className="display-7" /> Nomor Identitas</label>
-                                        <input type='text' className='form-control' onChange={handlerInput} name='nomor_identitas' placeholder='350xxxxx' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="namalengkap" className="form-label"><Icon icon="mdi:sort-alphabetical" className="display-7" />Nama Lengkap</label>
-                                        <input type='text' className='form-control' onChange={handlerInput} name='user_nama' placeholder='Zain Bagus...' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="tempatlahir" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />Tempat Lahir</label>
-                                        <input type='text' className='form-control' onChange={handlerInput} name='user_tempatlahir' placeholder='Malang' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="tanggallahir" className="form-label"><Icon icon="mdi:calendar" className="display-7" />Tanggal Lahir</label>
-                                        <input type='date' className='form-control' onChange={handlerInput} name='user_tgllahir' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="kelamin" className="form-label"><Icon icon="mdi:gender-male-female" className="display-7" />Jenis Kelamin</label>
-                                        <select id="kelamin" name="user_gender" onChange={handlerInput} className="form-select form-control" required>
-                                            <option value="" hidden>pilih</option>
-                                            <option value="P">Pria</option>
-                                            <option value="W">Wanita</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="email" className="form-label"><Icon icon="mdi:email" className="display-7" />Email</label>
-                                        <input type='email' className='form-control' onChange={handlerInput} name='user_email' placeholder='zain@gmail.com' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="telepon" className="form-label"><Icon icon="mdi:whatsapp" className="display-7" />Nomor Telepon</label>
-                                        <input type='number' className='form-control' onChange={handlerInput} name='user_telpon' placeholder='081xxx' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="mb-3">
-                                        <label htmlFor="npwp" className="form-label"><Icon icon="mdi:bank" className="display-7" />NPWP</label>
-                                        <input type='number' className='form-control' onChange={handlerInput} name='user_npwp' placeholder='2189xxx' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <div className="mb-3">
-                                        <label htmlFor="alamat" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />Alamat</label>
-                                        <textarea className='form-control' onChange={handlerInput} name='user_alamat' placeholder='Jl.Soekarno-Hatta...' required />
-                                    </div>
-                                </div>
-                                <div className="col-md-12">
-                                    <p align="right">
-                                        <div className="mb-0">
-                                            <button type='submit' className='btn btn-success' disabled={loading}>{loading ? "loading..." : "Simpan"}</button>
-                                        </div>
-                                    </p>
-                                </div>
+        <div className="dashboard">
+            <h3 className="mb-4 fw-bolder">
+                Form Pengguna
+            </h3>
+            <div className="col-lg-12 ">
+                <form onSubmit={handleSubmit}>
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="photo" className="form-label"><Icon icon="mdi:account-box" className="display-7" />&nbsp;&nbsp;Foto  Profil</label>
+                                <input type='file' id="foto" className='form-control' onChange={handlerInput} name="photo" placeholder='350xxxxx' required />
                             </div>
-                        </form>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:account-card-details" className="display-7" />&nbsp;&nbsp;Nomor Identitas</label>
+                                <input type='text' className='form-control' onChange={handlerInput} name='nomor_identitas' placeholder='350xxxxx' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="namalengkap" className="form-label"><Icon icon="mdi:sort-alphabetical" className="display-7" />&nbsp;&nbsp;Nama Lengkap</label>
+                                <input type='text' className='form-control' onChange={handlerInput} name='user_nama' placeholder='Zain Bagus...' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="tempatlahir" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Tempat Lahir</label>
+                                <input type='text' className='form-control' onChange={handlerInput} name='user_tempatlahir' placeholder='Malang' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="tanggallahir" className="form-label"><Icon icon="mdi:calendar" className="display-7" />&nbsp;&nbsp;Tanggal Lahir</label>
+                                <input type='date' className='form-control' onChange={handlerInput} name='user_tgllahir' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="kelamin" className="form-label"><Icon icon="mdi:gender-male-female" className="display-7" />&nbsp;&nbsp;Jenis Kelamin</label>
+                                <select id="kelamin" name="user_gender" onChange={handlerInput} className="form-select form-control" required>
+                                    <option value="" hidden>pilih</option>
+                                    <option value="P">Pria</option>
+                                    <option value="W">Wanita</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="email" className="form-label"><Icon icon="mdi:email" className="display-7" />&nbsp;&nbsp;Email</label>
+                                <input type='email' className='form-control' onChange={handlerInput} name='user_email' placeholder='zain@gmail.com' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="telepon" className="form-label"><Icon icon="mdi:whatsapp" className="display-7" />&nbsp;&nbsp;Nomor Telepon</label>
+                                <input type='number' className='form-control' onChange={handlerInput} name='user_telpon' placeholder='081xxx' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="npwp" className="form-label"><Icon icon="mdi:bank" className="display-7" />&nbsp;&nbsp;NPWP</label>
+                                <input type='number' className='form-control' onChange={handlerInput} name='user_npwp' placeholder='2189xxx' required />
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="mb-3">
+                                <label htmlFor="alamat" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Alamat</label>
+                                <textarea className='form-control' onChange={handlerInput} name='user_alamat' placeholder='Jl.Soekarno-Hatta...' required />
+                            </div>
+                        </div>
+                        <div className="col-md-12 mt-4">
+                            <p align="right">
+                                <a className='btn btn-success' disabled={loading}>{loading ? "loading..." : "Simpan"}</a>
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-        </Fragment>
+        </div>
     )
 
-    return <Dashboard content={element} active="dashboard" />
+    return <Dashboard content={element} active="dataUser" />
 }
 
 export default FormUsers;

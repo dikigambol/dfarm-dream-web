@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { Users_model } from '../../../service/users_model'
@@ -18,29 +19,28 @@ const DataUser = () => {
   }, [])
   
   const columns = [
-    { name: 'ID', selector: row => row.id },
-    { name: 'Name', selector: row => row.name },
+    { name: 'No', selector: row => row.no, width: "90px" },
+    { name: 'Nama', selector: row => row.name },
     { name: 'Role', selector: row => row.role },
     { name: 'Username', selector: row => row.username },
     { name: 'Default Pass', selector: row => row.pass },
-    { name: 'status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
+    { name: 'Status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
   ];
   const element = (
     <div className="dashboard">
-      <div className="row">
-        <h1 className="heading-1 mb-4 fw-bolder">Manage Users</h1>
-      </div>
-
+      <h3 className="mb-4 fw-bolder">
+				Kelola Pengguna
+			</h3>
       <div className="row justify-content-between">
         <div className="col-md-4">
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder="Find user" />
+            <input type="text" className="form-control" placeholder="Cari pengguna..." />
           </div>
         </div>
 
         <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <Link to="/form-users/add" type="button" className="btn btn-primary">Create User</Link>
+            <Link to="/form-users/add" className="btn btn-primary">Tambah User</Link>
           </div>
         </div>
       </div>

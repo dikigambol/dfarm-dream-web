@@ -1,7 +1,9 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Fragment, useEffect, useState } from 'react'
 import { useLogin } from '../../service/auth'
 import { getTokenFromCookie } from '../../utils/setToken'
 import ReCAPTCHA from "react-google-recaptcha";
+import swal from 'sweetalert';
 
 export default function Auth() {
 
@@ -84,15 +86,17 @@ export default function Auth() {
 											onChange={handleInput}
 											required />
 									</div>
-										<ReCAPTCHA
-											sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
-											onChange={handleRecaptcha}
-										/>
 									<div className="mb-4 form-check">
 										<input type="checkbox" className="form-check-input" id="re_remember" />
 										<label className="form-check-label" htmlFor="re_remember">Ingat Saya</label>
 									</div>
-									<button type="submit" className="btn btn-primary w-100" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
+									<div className='mb-4'>
+										<ReCAPTCHA
+											sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
+											onChange={handleRecaptcha}
+										/>
+									</div>
+									<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
 								</form>
 							</div>
 						</div>

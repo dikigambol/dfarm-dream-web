@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Cost_model } from '../../../service/cost_model'
 import Dashboard from '../../../components/dashboard'
 import DataTables from '../../../components/table'
+import { Link } from 'react-router-dom'
 
 const DataCost = () => {
 
@@ -20,25 +21,24 @@ const DataCost = () => {
   }, [])
 
   const columns = [
+    { name: 'No', selector: row => row.no, width: "80px" },
     { name: 'Fee Name', selector: row => row.fee },
     { name: 'status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
   ];
   const element = (
     <div className="dashboard">
-      <div className="row">
-        <h1 className="heading-1 mb-4 fw-bolder">Manage Cost Components</h1>
-      </div>
-
+      <h3 className="mb-4 fw-bolder">
+        Kelola Biaya
+      </h3>
       <div className="row justify-content-between">
         <div className="col-md-4">
           <div className="mb-3">
-            <input type="text" className="form-control" placeholder="Look for cost" />
+            <input type="text" className="form-control" placeholder="Cari biaya..." />
           </div>
         </div>
-
         <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <button className="btn btn-primary">Create Cost</button>
+            <Link to="" className="btn btn-primary">Tambah</Link>
           </div>
         </div>
       </div>

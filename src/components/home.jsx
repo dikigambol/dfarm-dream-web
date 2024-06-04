@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -47,27 +48,24 @@ const Home = (props) => {
             <aside className="left-sidebar">
                 <div className="sidebar">
                     <div className="brand-logo d-flex align-items-center justify-content-between">
-                        <Link to={'/home'} className="text-nowrap logo-img">
-                            <img src="./logo.svg" alt="Logo" className="img-fluid" />
+                        <Link to={'/dashboard'} className="text-nowrap logo-img">
+                            <img src="/logo.svg" alt="Logo" className="img-fluid" />
                             <span>Farm</span>
                             <span>Dream</span>
                         </Link>
-                        
                         <div className="minimize-btn">
                             <button className="btn sidebartoggler" id="sidebarCollapse" onClick={toggleSidebar}>
                                 <Icon icon="ant-design:menu-outlined" />
                             </button>
                         </div>
                     </div>
-
                     <div className="profile">
                         <div className="content">
-                            <img src="./user-2.jpg" alt="" className="img-fluid" />
-                            <h6 className="name">John Doe</h6>
-                            <span className="role">Admin</span>
+                            <img src="/user-2.jpg" alt="" className="avatar-profile" />
+                            <h6 className="name mb-0">John Doe</h6>
+                            <span className="role mt-0">Operator</span>
                         </div>
                     </div>
-
                     <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
                         <ul id="sidebarnav">
                             <li className="sidebar-item">
@@ -76,21 +74,12 @@ const Home = (props) => {
                                     <span className="hide-menu">Dashboard</span>
                                 </Link>
                             </li>
-
                             <li className="sidebar-item">
                                 <Link className={`sidebar-link ${curentActive == 'manageCages' ? 'active' : ''}`} to={'/manage-cages'} aria-expanded="false">
                                     <Icon icon="fe:cage" />
-                                    <span className="hide-menu">Cage Data</span>
+                                    <span className="hide-menu">Kandang</span>
                                 </Link>
                             </li>
-
-                            <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'investor' ? 'active' : ''}`} to={'/investor'} aria-expanded="false">
-                                    <Icon icon="streamline:investment-selection-solid" />
-                                    <span className="hide-menu">Investor</span>
-                                </Link>
-                            </li>
-
                             <li className="sidebar-item">
                                 <Link className={`sidebar-link ${curentActive == 'none' ? 'active' : ''}`} to={'#'} onClick={logout} aria-expanded="false">
                                     <Icon icon="majesticons:logout-line" />
@@ -102,7 +91,6 @@ const Home = (props) => {
                     </nav>
                 </div>
             </aside>
-
             <div className="right-side">
                 <div className='menu-header mb-2'>
                     <div className="brand-logo d-flex align-items-center justify-content-between">
