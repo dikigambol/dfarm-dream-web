@@ -148,7 +148,7 @@ const Homes = () => {
 		</Fragment>
 	)
 
-	return <Dashboard content={element} active="dashboard" />
+	return <Home content={element} active="home"/>
 }
 
 export default Homes;
