@@ -5,24 +5,32 @@
 @media (max-width: 767.98px) {
     .content-wrapper {
         width: 100vw;
+        padding: 20px 10px;
     }
 }
 
 @media (max-width: 991.98px) {
     .login .row .login-form{
-        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(/login-avatar.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        
+        background: linear-gradient(rgba(255, 255, 255, 0.884), rgb(255, 255, 255)), url(../ayam-telur.jpg);
+        background-size: 150px;
     }
-    
-    
     .login .row .login-form form{
-        /* background-color: red; */
-        backdrop-filter: blur(10px);
-        padding: 40px; 
-        border-radius: 20px;
-        box-shadow: inset -4px -4px 8px #ffffff, inset 4px 4px 8px #e4e1dd;
+        padding: 0% 10%; 
+    }
+    .login .row .login-form .logo .img-logo{
+        width: 220px;
+    }
+    .menu-header {
+        display: block;
+    }
+    .left-sidebar {
+        width: 0%;
+    }
+    #main-wrapper[data-layout="vertical"][data-sidebartype="full"] .left-sidebar {
+        width: 100%;
+    }
+    #main-wrapper[data-layout="vertical"][data-sidebartype="full"] .right-side {
+        display: none;
     }
 }
 
