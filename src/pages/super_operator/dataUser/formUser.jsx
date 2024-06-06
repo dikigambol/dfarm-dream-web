@@ -100,13 +100,13 @@ const FormUsers = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="photo" className="form-label"><Icon icon="mdi:account-box" className="display-7" />&nbsp;&nbsp;Foto  Profil</label>
-                                <input type='file' id="foto" className='form-control' onChange={handlerInput} name="user_foto" placeholder='350xxxxx' required />
+                                <input type='file' id="foto" className='form-control' value={form.user_foto} onChange={handlerInput} name="user_foto" placeholder='350xxxxx' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:account-card-details" className="display-7" />&nbsp;&nbsp;Status</label>
-                                <select className='form-control' name="user_status">
+                                <select className='form-control' name="user_status" value={form.user_status} onChange={handlerInput}>
                                     <option value="" hidden>Status</option>
                                     <option value="1">Aktif</option>
                                     <option value="2">Non Aktif</option>
@@ -116,31 +116,31 @@ const FormUsers = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:account-card-details" className="display-7" />&nbsp;&nbsp;Nomor Identitas</label>
-                                <input type='text' className='form-control' onChange={handlerInput} name='nomor_identitas' placeholder='350xxxxx' required />
+                                <input type='text' className='form-control' value={form.nomor_identitas} onChange={handlerInput} name='nomor_identitas' placeholder='350xxxxx' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="namalengkap" className="form-label"><Icon icon="mdi:sort-alphabetical" className="display-7" />&nbsp;&nbsp;Nama Lengkap</label>
-                                <input type='text' className='form-control' onChange={handlerInput} name='user_nama' placeholder='Zain Bagus...' required />
+                                <input type='text' className='form-control' value={form.user_nama} onChange={handlerInput} name='user_nama' placeholder='Zain Bagus...' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="tempatlahir" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Tempat Lahir</label>
-                                <input type='text' className='form-control' onChange={handlerInput} name='user_tempatlahir' placeholder='Malang' required />
+                                <input type='text' className='form-control' value={form.user_tempatlahir} onChange={handlerInput} name='user_tempatlahir' placeholder='Malang' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="tanggallahir" className="form-label"><Icon icon="mdi:calendar" className="display-7" />&nbsp;&nbsp;Tanggal Lahir</label>
-                                <input type='date' className='form-control' onChange={handlerInput} name='user_tgllahir' required />
+                                <input type='date' className='form-control' value={form.user_tgllahir} onChange={handlerInput} name='user_tgllahir' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="kelamin" className="form-label"><Icon icon="mdi:gender-male-female" className="display-7" />&nbsp;&nbsp;Jenis Kelamin</label>
-                                <select id="kelamin" name="user_gender" onChange={handlerInput} className="form-select form-control" required>
+                                <select id="kelamin" name="user_gender" value={form.user_gender} onChange={handlerInput} className="form-select form-control" required>
                                     <option value="" hidden>pilih</option>
                                     <option value="P">Pria</option>
                                     <option value="W">Wanita</option>
@@ -150,25 +150,25 @@ const FormUsers = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="email" className="form-label"><Icon icon="mdi:email" className="display-7" />&nbsp;&nbsp;Email</label>
-                                <input type='email' className='form-control' onChange={handlerInput} name='user_email' placeholder='zain@gmail.com' required />
+                                <input type='email' className='form-control' value={form.user_email} onChange={handlerInput} name='user_email' placeholder='zain@gmail.com' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="telepon" className="form-label"><Icon icon="mdi:whatsapp" className="display-7" />&nbsp;&nbsp;Nomor Telepon</label>
-                                <input type='number' className='form-control' onChange={handlerInput} name='user_telpon' placeholder='081xxx' required />
+                                <input type='number' className='form-control' value={form.user_telpon} onChange={handlerInput} name='user_telpon' placeholder='081xxx' required />
                             </div>
                         </div>
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="npwp" className="form-label"><Icon icon="mdi:bank" className="display-7" />&nbsp;&nbsp;NPWP</label>
-                                <input type='number' className='form-control' onChange={handlerInput} name='user_npwp' placeholder='2189xxx' required />
+                                <input type='number' className='form-control' value={form.user_npwp} onChange={handlerInput} name='user_npwp' placeholder='2189xxx' required />
                             </div>
                         </div>
                         <div className="col-md-12">
                             <div className="mb-3">
                                 <label htmlFor="alamat" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Alamat</label>
-                                <textarea className='form-control' onChange={handlerInput} name='user_alamat' placeholder='Jl.Soekarno-Hatta...' required />
+                                <textarea className='form-control' value={form.user_alamat} onChange={handlerInput} name='user_alamat' placeholder='Jl.Soekarno-Hatta...' required />
                             </div>
                         </div>
                         <div className="col-md-12 mt-4">
