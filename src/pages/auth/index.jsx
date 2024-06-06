@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Fragment, useEffect, useState } from 'react'
 import { useLogin } from '../../service/auth'
-import { getTokenFromCookie } from '../../utils/setToken'
 import ReCAPTCHA from "react-google-recaptcha";
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 export default function Auth() {
 
@@ -16,7 +16,6 @@ export default function Auth() {
 		password: ""
 	})
 
-	let token = getTokenFromCookie()
 
 	const handleInput = (e) => {
 		setForm((prev) => ({
@@ -44,12 +43,12 @@ export default function Auth() {
 		}
 	}
 
-	useEffect(() => {
-		if (token != null) {
-			setIsAuth(true)
-			window.location.replace('/dashboard')
-		}
-	}, [token])
+	// useEffect(() => {
+	// 	if (token != null) {
+	// 		setIsAuth(true)
+	// 		window.location.replace('/dashboard')
+	// 	}
+	// }, [token])
 
 	return (
 		<Fragment>
@@ -96,7 +95,7 @@ export default function Auth() {
 											onChange={handleRecaptcha}
 										/>
 									</div>
-									<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
+									<button type="submit" className="btn btn-primary w-100 mb-5 py-4" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
 								</form>
 							</div>
 						</div>

@@ -11,7 +11,7 @@ export const useLogin = () => {
     setLoading(true);
     try {
       const res = await axios.post("v1/auth/login", payload);
-      setTokenInCookie(res.data.token);
+      setTokenInCookie(res.data.data.token);
       setLoading(false);
       window.location.replace("/dashboard");
     } catch (error) {
@@ -26,10 +26,10 @@ export const useLogin = () => {
     }
   };
 
-  const verifyToken = async (token) => {
+  const deleteCookie = async (cookie) => {
     try {
-      const res = await axios.post("v1/app/get_token", { authToken: token });
-      if (res.data.status == "valid signature") {
+      const res = await axios.post("", {cookie });
+      if (res.data.status == "Valid") {
         setTokenStatus(true);
       } else {
         setTokenStatus(false);
@@ -39,9 +39,23 @@ export const useLogin = () => {
     }
   };
 
+
+  // const verifyToken = async (token) => {
+  //   try {
+  //     const res = await axios.post("v1/app/get_token", { authToken: token });
+  //     if (res.data.status == "valid signature") {
+  //       setTokenStatus(true);
+  //     } else {
+  //       setTokenStatus(false);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   return {
     login,
-    verifyToken,
+    deleteCookie,
     loading,
     tokenStatus,
   };
