@@ -61,21 +61,23 @@ const Investor = (props) => {
                     </div>
                     <div className="profile">
                         <div className="content">
-                            <img src="/user-3.jpg" alt="Profile" className="avatar-profile" />
-                            <h6 className="name mb-0">John Doe</h6>
-                            <span className="role mt-0">Operator</span>
+                            <Link to={'/investor/profile'} >
+                                <img src="/user-3.jpg" alt="Profile" className="avatar-profile" />
+                                <h6 className="name mb-0">John Doe</h6>
+                                <span className="role mt-0">Investor</span>
+                            </Link>
                         </div>
                     </div>
                     <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
                         <ul id="sidebarnav">
                             <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'home' ? 'active' : ''}`} to={'/home'} aria-expanded="false">
+                                <Link className={`sidebar-link ${curentActive == 'investor' ? 'active' : ''}`} to={'/investor'} aria-expanded="false">
                                     <Icon icon="mingcute:layout-6-fill" />
                                     <span className="hide-menu">Dashboard</span>
                                 </Link>
                             </li>
                             <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'investor' ? 'active' : ''}`} to={'/investors'} aria-expanded="false">
+                                <Link className={`sidebar-link ${curentActive == 'report' ? 'active' : ''}`} to={'/report'} aria-expanded="false">
                                     <Icon icon="streamline:investment-selection-solid" />
                                     <span className="hide-menu">Investors</span>
                                 </Link>
@@ -95,7 +97,7 @@ const Investor = (props) => {
                 <div className='menu-header mb-2'>
                     <div className="brand-logo d-flex align-items-center justify-content-between">
                         <Link to={'/home'} className="text-nowrap logo-img">
-                            <img src="./logo.svg" alt="Logo" className="img-fluid" />
+                            <img src="/logo.svg" alt="Logo" className="img-fluid" />
                             <span>Farm</span>
                             <span>Dream</span>
                         </Link>

@@ -6,17 +6,9 @@ import DataTables from '../../../components/table'
 import { Link } from 'react-router-dom'
 
 
-const Investors = () => {
+const Reports = () => {
 
     const { get_all, users } = Cost_model()
-
-    const editData = (id) => {
-        console.log(id);
-    }
-
-    const deleteData = (id) => {
-        console.log(id);
-    }
 
     useEffect(() => {
         get_all()
@@ -205,8 +197,6 @@ const Investors = () => {
                         highlightOnHover: true,
                         striped: true,
                         pagination: true,
-                        // edit: { status: true, callback: editData },
-                        // delete: { status: true, callback: deleteData },
                     }}
                 />
             </div>
@@ -215,7 +205,7 @@ const Investors = () => {
 
     )
 
-    return <Investor content={element} active="investor" />
+    return <Investor content={element} active="report" />
 }
 
-export default Investors
+export default Reports

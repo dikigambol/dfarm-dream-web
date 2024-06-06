@@ -42,7 +42,6 @@ const cardInners = (props) => {
     }, [options]);
     
     useEffect(() => {
-        console.log(config);
         setRender(element(config.moveIt))
     }, [config])
 
