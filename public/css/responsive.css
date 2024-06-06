@@ -1,5 +1,26 @@
 @media (max-width: 575.98px) {
+    .list-group-horizontal{
+        flex-direction: column;
+    }   
     
+    .list-group-horizontal .list-group-item.title{
+        font-weight: 500;
+        padding-bottom: 0;
+    }
+    
+    .list-group-horizontal .list-group-item.separat{
+        display: none;
+    }
+    
+    .list-group-horizontal .list-group-item.content {
+        padding-top: 0;
+        padding-left: 40px;
+    }
+    
+    .list-group-horizontal .list-group-itemt{
+        margin: 0;
+        padding: 0;
+    }
 }
 
 @media (max-width: 767.98px) {

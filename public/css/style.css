@@ -25,6 +25,8 @@ html {
     background-color: var(--primary-color);
     font-family: "Poppins", sans-serif;
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 button,
@@ -33,7 +35,6 @@ button:focus,
 button:active {
     box-shadow: none;
     border-color: transparent !important;
-    line-height: 0px !important;
 }
 
 a {
@@ -54,19 +55,10 @@ ul {
 }
 
 .form-control {
-    display: block;
-    width: 100%;
     padding: 10px 16px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
     color: var(--dark-color);
-    appearance: none;
-    background-color: transparent;
-    background-clip: padding-box;
     border: var(--bs-border-width) solid var(--primary-color);
     border-radius: 8px;
-    box-shadow: var(--bs-box-shadow-inset);
     transition: all .15s ease-in-out
 }
 
@@ -75,26 +67,34 @@ ul {
     background-color: transparent;
     border-color: var(--primary-color);
     outline: 0;
-    box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgbaa(61, 129, 96, 0.2);
+    box-shadow: var(--bs-box-shadow-inset), 0 0 0 .25rem rgba(61, 129, 96, 0.2);
 }
 
 .form-select {
-    background-position: right 16px center
+    background-position: right 16px center;
 }
 
 .bg-transparant{
-    background-color: transparent;
+    background-color: transparent !important;
+}
+
+.bg-color-primary{
+    background-color: var(--primary-color);
+}
+
+.color-primary{
+    color: var(--primary-color);
 }
 
 .tap{
     background-color: var(--light-color);
-    padding: 18px 48px;
+    padding: 10px 24px;
     line-height: 1;
     border: 2px solid var(--yellow-color) !important;
     color: var(--yellow-color);
 }
 
-.tap.active, .tap:focus, .tap:active{
+.tap.active, .tap:focus, .tap:hover{
     background-color: var(--yellow-color);
     color: var(--light-color);
 }
@@ -107,11 +107,12 @@ ul {
     font-weight: 600;
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active {
-    background-color: var(--marron-color) !important;
-    border-color: var(--marron-color) !important;
+.btn.btn-primary:hover,
+.btn.btn-primary:focus,
+.btn.btn-primary:disabled,
+.btn.btn-primary:active {
+    background-color: var(--marron-color);
+    border-color: var(--marron-color);
     opacity: 0.8;
 }
 
@@ -159,21 +160,56 @@ ul {
     left: 20px;
 }
 
+.height-full{
+    height: 100vh;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #999999;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #777777;
+    border-color: #f1f1f1;
+}
+
+.custom-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: #777777;
+    border-color: #f1f1f1;
+}
+
+/* .list-group-horizontal{
+    display: n;
+} */
+
+.list-group-horizontal .title{
+    min-width: 150px;
+}
+
 /* [ LOGIN ] */
 .login .row .login-avatar {
-    display: flex;
+    display: block;
     max-height: 100vh;
     overflow: hidden;
 }
 
-.login .row .login-avatar .img-fluid {
-    display: block;
-    margin: auto;
-    width: 50%;
-    min-height: 100vh;
+.login .row .login-avatar img {
+    
+    width: 100%;
+    min-height: 100vh ;
     object-fit: cover;
-    position: fixed;
-    margin-top: -120px;
 }
 
 .login .row .login-form {
@@ -183,6 +219,10 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.login .row .login-form.forget{
+    background-color: transparent;
 }
 
 .login .row .login-form form {
@@ -262,7 +302,7 @@ ul {
 /* [ SIDE BAR ] */
 .left-sidebar {
     background-color: var(--primary-color);
-    width: 22%;
+    width: min(100%, 300px);
     position: absolute;
     transition: all 0.2s ease-in;
     height: 100vh;
@@ -424,7 +464,6 @@ ul {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    line-height: 26px;
     position: relative;
     border-radius: 12px;
     gap: 10px;
@@ -490,7 +529,7 @@ ul {
 .right-side {
     position: absolute;
     right: 0;
-    width: 78%;
+    width: calc(100% - 300px);
     min-height: 100vh;
     transition: all 0.3s ease-in-out;
 }
@@ -683,11 +722,11 @@ ul {
     box-sizing: border-box;
 }
 body {
-  background-color: #3D8160;
-  margin-bottom: 50px;
+  /* background-color: #3D8160; */
+  /* margin-bottom: 50px; */
 }
 html, button, input, select, textarea {
-    font-family: 'Montserrat', Helvetica, sans-serif;
+    /* font-family: 'Montserrat', Helvetica, sans-serif; */
     color: #92a4ad;
 }
 h1 {

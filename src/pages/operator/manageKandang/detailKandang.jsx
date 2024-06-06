@@ -30,13 +30,116 @@ const CageDetails = () => {
   ];
   const element = (
     <div className="dashboard">
-      <h3 className="mb-4 fw-bolder">
-        Detail Kandang
-      </h3>
+      <div className="row mb-5">
+        <div className="col-lg-7">
+          <div className="card border-0 bg-transparant">
+            <div className="card-body text-light bg-color-primary lh-1 px-4 rounded-4">
+              <span className="d-block my-2 fs-6">Kandang</span>
+              <span className="d-block my-2 fs-4 fw-semibold">Nama Kandang</span>
+            </div>
+
+            <div className="card-body">
+              <span className="fs-6 fw-semibold color-primary d-block">Detail Kandang</span>
+
+              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                <li className="list-group-item border-0 bg-transparant title">Anak Kandang</li>
+                <li className="list-group-item border-0 bg-transparant separat">:</li>
+                <li className="list-group-item border-0 bg-transparant content">Khusni Ridho</li>
+              </ul>
+
+              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                <li className="list-group-item border-0 bg-transparant title">Kode</li>
+                <li className="list-group-item border-0 bg-transparant separat">:</li>
+                <li className="list-group-item border-0 bg-transparant content">KD002</li>
+              </ul>
+              
+              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                <li className="list-group-item border-0 bg-transparant title">Lokasi</li>
+                <li className="list-group-item border-0 bg-transparant separat">:</li>
+                <li className="list-group-item border-0 bg-transparant content">Jl. Pejuang No.45, Kulur, Kec. Majalengka, Kabupaten Majalengka, Jawa Barat 45411</li>
+              </ul>
+              
+              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                <li className="list-group-item border-0 bg-transparant title">Luas</li>
+                <li className="list-group-item border-0 bg-transparant separat">:</li>
+                <li className="list-group-item border-0 bg-transparant content">500 M <sup>2</sup></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-lg-5">
+          <div className="card border-0 mb-3">
+            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
+              <div className="icon">
+                <Icon icon="healthicons:animal-chicken" className="display-6" />
+              </div>
+              <div className="content">
+                <span className="d-block my-2 fs-6">Populasi Ayam</span>
+                <span className="d-block my-2 fs-5 fw-semibold">800</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="card border-0 mb-3">
+            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
+              <div className="icon text-warning">
+              <Icon icon="heroicons-solid:light-bulb" className="display-6" />
+              </div>
+              <div className="content">
+                <span className="d-block my-2 fs-6">DOC</span>
+                <span className="d-block my-2 fs-5 fw-semibold">400</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="card border-0 mb-3">
+            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
+              <div className="icon text-danger">
+                <Icon icon="material-symbols:light-off" className="display-6" />
+              </div>
+              <div className="content">
+                <span className="d-block my-2 fs-6">Afkir</span>
+                <span className="d-block my-2 fs-5 fw-semibold">100</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div className="row mb-4">
-        <div className="d-inline-flex">
+        <div className="d-inline-flex overflow-auto pb-3 custom-scroll">
           <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold active">Keuangan</button>
           <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">SHM</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
         </div>
       </div>
 

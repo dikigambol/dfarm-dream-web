@@ -26,10 +26,32 @@ export const useLogin = () => {
     }
   };
 
-  const deleteCookie = async (cookie) => {
+  const requestOTP = async (payload) => {
+    setLoading(true);
     try {
-      const res = await axios.post("", {cookie });
-      if (res.data.status == "Valid") {
+      /* belum tersedia */
+      const res = await axios.post("v1/auth/request_otp", payload);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  const resetPassword = async (payload) => {
+    setLoading(true);
+    try {
+      /* belum tersedia */
+      const res = await axios.post("v1/auth/react_password", payload);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  const verifyToken = async (token) => {
+    try {
+      const res = await axios.post("v1/app/get_token", { authToken: token });
+      if (res.data.status == "valid signature") {
         setTokenStatus(true);
       } else {
         setTokenStatus(false);
@@ -39,23 +61,11 @@ export const useLogin = () => {
     }
   };
 
-
-  // const verifyToken = async (token) => {
-  //   try {
-  //     const res = await axios.post("v1/app/get_token", { authToken: token });
-  //     if (res.data.status == "valid signature") {
-  //       setTokenStatus(true);
-  //     } else {
-  //       setTokenStatus(false);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   return {
     login,
-    deleteCookie,
+    requestOTP,
+    resetPassword,
+    verifyToken,
     loading,
     tokenStatus,
   };

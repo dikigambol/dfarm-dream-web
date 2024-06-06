@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = (props) => {
+const Investor = (props) => {
 
     const [curentActive, setCurentActive] = useState('');
 
@@ -62,24 +62,24 @@ const Home = (props) => {
                     <div className="profile">
                         <div className="content">
                             <Link to={'/investor/profile'} >
-                                <img src="/user-2.jpg" alt="Profile" className="avatar-profile" />
+                                <img src="/user-3.jpg" alt="Profile" className="avatar-profile" />
                                 <h6 className="name mb-0">John Doe</h6>
-                                <span className="role mt-0">Operator</span>
+                                <span className="role mt-0">Investor</span>
                             </Link>
                         </div>
                     </div>
                     <nav className="sidebar-nav scroll-sidebar" data-simplebar="">
                         <ul id="sidebarnav">
                             <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'home' ? 'active' : ''}`} to={'/home'} aria-expanded="false">
+                                <Link className={`sidebar-link ${curentActive == 'investor' ? 'active' : ''}`} to={'/investor'} aria-expanded="false">
                                     <Icon icon="mingcute:layout-6-fill" />
                                     <span className="hide-menu">Dashboard</span>
                                 </Link>
                             </li>
                             <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'manageCages' ? 'active' : ''}`} to={'/manage-cages'} aria-expanded="false">
-                                    <Icon icon="fe:cage" />
-                                    <span className="hide-menu">Kandang</span>
+                                <Link className={`sidebar-link ${curentActive == 'report' ? 'active' : ''}`} to={'/report'} aria-expanded="false">
+                                    <Icon icon="streamline:investment-selection-solid" />
+                                    <span className="hide-menu">Investors</span>
                                 </Link>
                             </li>
                             <li className="sidebar-item">
@@ -116,4 +116,4 @@ const Home = (props) => {
     )
 }
 
-export default Home
+export default Investor
