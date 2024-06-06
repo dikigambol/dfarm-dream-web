@@ -26,6 +26,28 @@ export const useLogin = () => {
     }
   };
 
+  const requestOTP = async (payload) => {
+    setLoading(true);
+    try {
+      /* belum tersedia */
+      const res = await axios.post("v1/auth/request_otp", payload);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  const resetPassword = async (payload) => {
+    setLoading(true);
+    try {
+      /* belum tersedia */
+      const res = await axios.post("v1/auth/react_password", payload);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
   const verifyToken = async (token) => {
     try {
       const res = await axios.post("v1/app/get_token", { authToken: token });
@@ -41,6 +63,8 @@ export const useLogin = () => {
 
   return {
     login,
+    requestOTP,
+    resetPassword,
     verifyToken,
     loading,
     tokenStatus,

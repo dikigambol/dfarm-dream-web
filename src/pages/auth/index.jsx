@@ -7,19 +7,31 @@ import swal from 'sweetalert';
 
 export default function Auth() {
 
-	const { login, loading } = useLogin()
+	const { login, requestOTP, loading } = useLogin()
+	const [forget, setForget] = useState(false)
 	const [isAuth, setIsAuth] = useState(false)
 	const [captcha, setCaptcha] = useState("")
 
-	const [form, setForm] = useState({
+	const [formLogin, setFormLogin] = useState({
 		username: "",
 		password: ""
 	})
 
+	const [formForget, setFormForget] = useState({
+		email: ""
+	})
+
 	let token = getTokenFromCookie()
 
-	const handleInput = (e) => {
-		setForm((prev) => ({
+	const handleInputLogin = (e) => {
+		setFormLogin((prev) => ({
+			...prev,
+			[e.target.name]: e.target.value
+		}))
+	}
+
+	const handleInputForget = (e) => {
+		setFormForget((prev) => ({
 			...prev,
 			[e.target.name]: e.target.value
 		}))
@@ -32,7 +44,22 @@ export default function Auth() {
 	const HandleLogin = (e) => {
 		e.preventDefault()
 		if (captcha != "") {
-			login(form)
+			login(formLogin)
+		} else {
+			swal({
+				title: "Require Recaptcha!",
+				text: "menutup jendela...",
+				icon: "warning",
+				timer: 3000,
+				buttons: false,
+			})
+		}
+	}
+
+	const HandleForget = (e) => {
+		e.preventDefault()
+		if (captcha != "") {
+			requestOTP(formLogin)
 		} else {
 			swal({
 				title: "Require Recaptcha!",
@@ -53,51 +80,82 @@ export default function Auth() {
 
 	return (
 		<Fragment>
+
 			{isAuth ? null :
 				<section className="login" id="login">
 					<div className="container-fluid">
 						<div className="row ">
 							<div className="col-lg-6 d-lg-block d-none login-avatar p-0">
-								<img src="login-avatar.png" alt="Login Page" className="img-fluid" />
+								<img src="login-avatar.png" alt="Login Page" className="avatar" />
 							</div>
 							<div className="col-lg-6 login-form">
-								<form onSubmit={HandleLogin}>
-									<div className="logo mb-4">
-										<img src="logo_light.png" alt="Farm Dream" className="img-fluid img-logo" />
-										<h2 className="fw-semibold">Login</h2>
-									</div>
-									<div className="mb-4">
-										<label htmlFor="username" className="form-label">Username</label>
-										<input type="text"
-											className="form-control"
-											id="username"
-											name="username"
-											value={form.username}
-											onChange={handleInput}
-											required />
-									</div>
-									<div className="mb-4">
-										<label htmlFor="password" className="form-label">Password</label>
-										<input type="password"
-											className="form-control"
-											id="password"
-											name="password"
-											value={form.password}
-											onChange={handleInput}
-											required />
-									</div>
-									<div className="mb-4 form-check">
-										<input type="checkbox" className="form-check-input" id="re_remember" />
-										<label className="form-check-label" htmlFor="re_remember">Ingat Saya</label>
-									</div>
-									<div className='mb-4'>
-										<ReCAPTCHA
-											sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
-											onChange={handleRecaptcha}
-										/>
-									</div>
-									<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
-								</form>
+								{!forget ? (
+									<form onSubmit={HandleLogin} method="POST">
+										<div className="logo mb-4">
+											<img src="logo_light.png" alt="Farm Dream" className="img-fluid img-logo" />
+											<h2 className="fw-semibold">Login</h2>
+										</div>
+										<div className="mb-4">
+											<label htmlFor="username" className="form-label">Username</label>
+											<input type="text"
+												className="form-control"
+												id="username"
+												name="username"
+												value={formLogin.username}
+												onChange={handleInputLogin}
+												required />
+										</div>
+										<div className="mb-4">
+											<label htmlFor="password" className="form-label">Kata Sandi</label>
+											<input type="password"
+												className="form-control"
+												id="password"
+												name="password"
+												value={formLogin.password}
+												onChange={handleInputLogin}
+												required />
+										</div>
+										<div className="mb-4 form-check">
+											<input type="checkbox" className="form-check-input" id="re_remember" />
+											<label className="form-check-label" htmlFor="re_remember">Ingat Saya</label>
+											<button type="button" className="float-end btn px-0 fw-normal" role="button" onClick={() => setForget(!forget)}>Lupa kata sandi?</button>
+										</div>
+										<div className='mb-4'>
+											<ReCAPTCHA
+												sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
+												onChange={handleRecaptcha}
+											/>
+										</div>
+										<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
+									</form>
+								) : (
+									<form onSubmit={HandleForget} method="POST">
+										<div className="logo mb-4">
+											<img src="logo_light.png" alt="Farm Dream" className="img-fluid img-logo" />
+											<h2 className="fw-semibold">Lupa Kata Sandi</h2>
+										</div>
+										<div className="mb-4">
+											<label htmlFor="email" className="form-label">Alamat Email</label>
+											<input type="text"
+												className="form-control"
+												id="email"
+												name="email"
+												value={formForget.email}
+												onChange={handleInputForget}
+												required />
+										</div>
+										<div className="mb-4 form-check">
+											<button type="button" className="float-end btn px-0 fw-normal" role="button" onClick={() => setForget(!forget)}>Ingat kata sandi?</button>
+										</div>
+										<div className='mb-4'>
+											<ReCAPTCHA
+												sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
+												onChange={handleRecaptcha}
+											/>
+										</div>
+										<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Atur ualng sandi"}</button>
+									</form>
+								)}
 							</div>
 						</div>
 					</div>
