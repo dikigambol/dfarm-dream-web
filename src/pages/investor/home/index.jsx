@@ -25,8 +25,8 @@ const Investors = () => {
     const columns = [
         { name: 'Transaction', selector: row => row.fee },
         { name: 'Tanggal', selector: row => row.date },
-        { name: 'Amount', selector: row => row.amount },
         { name: 'Status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
+        { name: 'Amount', selector: row => row.amount },
     ];
     const element = (
         <div className="dashboard">
@@ -106,7 +106,6 @@ const Investors = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className="row mb-4">
                 <div className="d-inline-flex overflow-auto pb-3 custom-scroll">
@@ -206,8 +205,8 @@ const Investors = () => {
                         highlightOnHover: true,
                         striped: true,
                         pagination: true,
-                        edit: { status: true, callback: editData },
-                        delete: { status: true, callback: deleteData },
+                        // edit: { status: true, callback: editData },
+                        // delete: { status: true, callback: deleteData },
                     }}
                 />
             </div>

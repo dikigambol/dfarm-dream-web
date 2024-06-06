@@ -62,7 +62,7 @@ export const useUser = () => {
     setLoading(true);
     try {
       setLoading(true);
-      await axios.post("user", data, multipartheaders);
+      await axios.post("user/add/user", data, multipartheaders);
       setLoading(false);
       swal({
         title: "Berhasil di Tambah",

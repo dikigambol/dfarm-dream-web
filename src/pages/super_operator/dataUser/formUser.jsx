@@ -11,15 +11,20 @@ import swal from 'sweetalert';
 
 const initialState = {
     user_id: "",
+    level_id: "",
     nomor_identitas: "",
+    username: "",
+    password_default: "",
     user_nama: "",
+    user_status: "",
+    user_foto: "",
     user_tempatlahir: "",
     user_tgllahir: "",
     user_gender: "",
     user_email: "",
     user_telpon: "",
-    user_npwp: "",
-    user_alamat: ""
+    user_alamat: "",
+    user_npwp: ""
 }
 
 const FormUsers = () => {
@@ -44,12 +49,12 @@ const FormUsers = () => {
                 e.target.value = '';
                 setForm({
                     ...form,
-                    photo: '',
+                    user_foto: '',
                 });
             } else {
                 setForm({
                     ...form,
-                    photo: files[0],
+                    user_foto: files[0],
                 });
             }
         }
@@ -95,7 +100,17 @@ const FormUsers = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="photo" className="form-label"><Icon icon="mdi:account-box" className="display-7" />&nbsp;&nbsp;Foto  Profil</label>
-                                <input type='file' id="foto" className='form-control' onChange={handlerInput} name="photo" placeholder='350xxxxx' required />
+                                <input type='file' id="foto" className='form-control' onChange={handlerInput} name="user_foto" placeholder='350xxxxx' required />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="mb-3">
+                                <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:account-card-details" className="display-7" />&nbsp;&nbsp;Status</label>
+                                <select className='form-control' name="user_status">
+                                    <option value="" hidden>Status</option>
+                                    <option value="1">Aktif</option>
+                                    <option value="2">Non Aktif</option>
+                                </select>
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -158,7 +173,7 @@ const FormUsers = () => {
                         </div>
                         <div className="col-md-12 mt-4">
                             <p align="right">
-                                <a className='btn btn-success' disabled={loading}>{loading ? "loading..." : "Simpan"}</a>
+                                <button type='submit' className='btn btn-success py-4' disabled={loading}>{loading ? "loading..." : "Simpan"}</button>
                             </p>
                         </div>
                     </div>

@@ -94,7 +94,7 @@ ul {
     color: var(--yellow-color);
 }
 
-.tap.active, .tap:focus, .tap:active{
+.tap.active, .tap:focus, .tap:hover{
     background-color: var(--yellow-color);
     color: var(--light-color);
 }

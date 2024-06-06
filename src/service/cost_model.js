@@ -11,11 +11,15 @@ export const Cost_model = () => {
         {
             no: "1",
             fee: "Modal Awal",
+            date: '2011/07/25',
+            amount: 'Rp. 86,000',
             status: '<span class="badge badge-success rounded-pill">Active</span>',
         },
         {
             no: "2",
             fee: "Biaya Pakan",
+            date: '2009/01/12',
+            amount: 'Rp. 170,750',
             status: '<span class="badge badge-fail rounded-pill">Not Active</span>',
         }
     ]

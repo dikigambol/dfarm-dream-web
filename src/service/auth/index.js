@@ -11,7 +11,7 @@ export const useLogin = () => {
     setLoading(true);
     try {
       const res = await axios.post("v1/auth/login", payload);
-      setTokenInCookie(res.data.token);
+      setTokenInCookie(res.data.data.token);
       setLoading(false);
       window.location.replace("/dashboard");
     } catch (error) {
