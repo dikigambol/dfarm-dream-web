@@ -3,25 +3,10 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteAllCookies, getTokenFromCookie } from '../utils/setToken';
-import { useLogin } from '../service/auth';
 
 const Dashboard = (props) => {
 
     const [curentActive, setCurentActive] = useState('');
-
-    let token = getTokenFromCookie()
-    const { verifyToken, tokenStatus } = useLogin()
-
-    useEffect(() => {
-        async function tokenLoad() {
-            await verifyToken(token)
-        }
-        tokenLoad()
-        if (tokenStatus == false) {
-            deleteAllCookies()
-            window.location.replace('/')
-        }
-    }, [token, tokenStatus])
 
     const logout = () => {
         deleteAllCookies()
@@ -62,7 +47,6 @@ const Dashboard = (props) => {
 
     return (
         <div>
-            {/* {tokenStatus ? */}
                 <div className="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <aside className="left-sidebar">
                         <div className="sidebar">

@@ -9,6 +9,20 @@ export function setTokenInCookie(token) {
   console.log("Expiration time set in cookies:", exp);
 }
 
+export function getTokenCookie() {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        // Memeriksa jika cookie dimulai dengan 'token='
+        if (cookie.startsWith('token=')) {
+            // Mengembalikan nilai token setelah '='
+            return cookie.substring('token='.length, cookie.length);
+        }
+    }
+    return null; // Jika tidak ada cookie 'token'
+}
+
+
 export function getTokenFromCookie() {
   const cookies = document.cookie.split(";");
   for (const cookie of cookies) {
@@ -19,6 +33,7 @@ export function getTokenFromCookie() {
   }
   return null;
 }
+
 
 export function deleteAllCookies() {
   const cookies = document.cookie.split(";");
