@@ -206,10 +206,9 @@ ul {
 }
 
 .login .row .login-avatar img {
-    
-    width: 100%;
-    min-height: 100vh ;
-    object-fit: cover;
+    width: 50%;
+    position: fixed;
+    margin-top: -100px;
 }
 
 .login .row .login-form {
@@ -756,4 +755,8 @@ a.more-link {
     text-decoration: none;
   margin-top: 50px;
   letter-spacing: 1px;
+}
+
+.forget-sandi {
+    margin-top: -12px;
 }

@@ -115,18 +115,18 @@ export default function Auth() {
 												onChange={handleInputLogin}
 												required />
 										</div>
-										<div className="mb-4 form-check">
-											<input type="checkbox" className="form-check-input" id="re_remember" />
-											<label className="form-check-label" htmlFor="re_remember">Ingat Saya</label>
-											<button type="button" className="float-end btn px-0 fw-normal" role="button" onClick={() => setForget(!forget)}>Lupa kata sandi?</button>
-										</div>
 										<div className='mb-4'>
 											<ReCAPTCHA
 												sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
 												onChange={handleRecaptcha}
 											/>
 										</div>
-										<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
+										<button type="submit" className="btn btn-primary w-100 mb-3" disabled={loading}>{loading ? "loading..." : "Masuk"}</button>
+										<div className="mb-4 form-check">
+											<input type="checkbox" className="form-check-input" id="re_remember" />
+											<label className="form-check-label" htmlFor="re_remember">Ingat saya</label>
+											<button type="button" className="float-end btn px-0 fw-normal forget-sandi text-success" role="button" onClick={() => setForget(!forget)}>Lupa kata sandi?</button>
+										</div>
 									</form>
 								) : (
 									<form onSubmit={HandleForget} method="POST">
@@ -144,16 +144,16 @@ export default function Auth() {
 												onChange={handleInputForget}
 												required />
 										</div>
-										<div className="mb-4 form-check">
-											<button type="button" className="float-end btn px-0 fw-normal" role="button" onClick={() => setForget(!forget)}>Ingat kata sandi?</button>
-										</div>
 										<div className='mb-4'>
 											<ReCAPTCHA
 												sitekey="6LedNvApAAAAAJCoigaxNFLxTGCTJ1GrXZsy6_a8"
 												onChange={handleRecaptcha}
 											/>
 										</div>
-										<button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Atur ualng sandi"}</button>
+										<button type="submit" className="btn btn-primary w-100 mb-2" disabled={loading}>{loading ? "loading..." : "Atur ualng sandi"}</button>
+										<div className="mb-4 form-check">
+											<button type="button" className="float-end btn px-0 fw-normal text-success" role="button" onClick={() => setForget(!forget)}>Ingat kata sandi?</button>
+										</div>
 									</form>
 								)}
 							</div>
