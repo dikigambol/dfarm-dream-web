@@ -8,7 +8,8 @@ import { isSuperOperator } from '../service/auth/validasi';
 const Dashboard = (props) => {
 
     const [curentActive, setCurentActive] = useState('');
-
+    const [isSuperOperator, setIsSuperOperator] = useState(false);
+    
     const logout = () => {
         deleteAllCookies()
         window.location.replace('/')

@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { isOperator } from '../service/auth/validasi';
+import { deleteAllCookies } from '../utils/setToken';
 
 const Home = (props) => {
 
