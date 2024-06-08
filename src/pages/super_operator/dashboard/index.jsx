@@ -9,20 +9,20 @@ import { useLogin } from '../../../service/auth'
 const Dashboards = () => {
 
 	let token = getTokenFromCookie()
-	const { verifyToken, tokenStatus } = useLogin()
+	// const { verifyToken, tokenStatus } = useLogin()
 
 	const { get_all, dashboard } = Dashboard_model()
 
-	useEffect(() => {
-		async function tokenLoad() {
-			await verifyToken(token)
-		}
-		tokenLoad()
-		if (tokenStatus == false) {
-			deleteAllCookies()
-			window.location.replace('/')
-		}
-	}, [token, tokenStatus])
+	// useEffect(() => {
+	// 	async function tokenLoad() {
+	// 		await verifyToken(token)
+	// 	}
+	// 	tokenLoad()
+	// 	if (tokenStatus == false) {
+	// 		deleteAllCookies()
+	// 		window.location.replace('/')
+	// 	}
+	// }, [token, tokenStatus])
 
 	useEffect(() => {
 		get_all()

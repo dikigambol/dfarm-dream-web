@@ -71,16 +71,9 @@ export default function Auth() {
 		}
 	}
 
-	useEffect(() => {
-		if (token != null) {
-			setIsAuth(true)
-			window.location.replace('/dashboard')
-		}
-	}, [token])
 
 	return (
 		<Fragment>
-
 			{isAuth ? null :
 				<section className="login" id="login">
 					<div className="container-fluid">
