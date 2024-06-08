@@ -174,20 +174,15 @@ ul {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background-color: #999999;
+    background-color: var(--primary-color);
     border-radius: 10px;
     border: 3px solid transparent;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-    background-color: #777777;
-    border-color: #f1f1f1;
+    transition: all 0.3s ease-in-out;
 }
 
 .custom-scroll:hover::-webkit-scrollbar-thumb {
     background-color: #777777;
-    border-color: #f1f1f1;
+    border-color: var(--primary-color);
 }
 
 /* .list-group-horizontal{
@@ -361,7 +356,7 @@ ul {
 .brand-logo .minimize-btn .btn {
     background-color: rgba(255, 242, 229, 0.3);
     position: absolute;
-    padding: 5px 9px;
+    padding: 1px 9px;
     font-size: 20px;
     right: -14px;
     color: var(--yellow-color);
@@ -377,7 +372,7 @@ ul {
 .brand-logo .responsive-menu-btn .btn {
     background-color: rgba(255, 242, 229, 0.3);
     position: absolute;
-    padding: 5px 9px;
+    padding: 1px 9px;
     font-size: 20px;
     right: 0px;
     color: var(--yellow-color);

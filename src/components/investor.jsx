@@ -77,9 +77,9 @@ const Investor = (props) => {
                                 </Link>
                             </li>
                             <li className="sidebar-item">
-                                <Link className={`sidebar-link ${curentActive == 'report' ? 'active' : ''}`} to={'/report'} aria-expanded="false">
-                                    <Icon icon="streamline:investment-selection-solid" />
-                                    <span className="hide-menu">Investors</span>
+                                <Link className={`sidebar-link ${curentActive == 'investorCages' ? 'active' : ''}`} to={'/inverstor-cages'} aria-expanded="false">
+                                    <Icon icon="fe:cage" />
+                                    <span className="hide-menu">Kandang</span>
                                 </Link>
                             </li>
                             <li className="sidebar-item">

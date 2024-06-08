@@ -38,6 +38,8 @@ const FormUsers = () => {
         const { name, value, type, files } = e.target;
         if (type === 'file') {
             const resFile = validateFile(files[0])
+
+            
             if (!resFile) {
                 swal({
                     title: "gagal upload",
@@ -58,11 +60,11 @@ const FormUsers = () => {
                 });
             }
         }
-        const newValue = type === 'file' ? files[0] : value;
-        setForm({
-            ...form,
-            [name]: newValue,
-        });
+        // const newValue = type === 'file' ? files[0] : value;
+        // setForm({
+        //     ...form,
+        //     [name]: newValue,
+        // });
     };
 
     const handleSubmit = (e) => {
@@ -100,7 +102,7 @@ const FormUsers = () => {
                         <div className="col-md-6">
                             <div className="mb-3">
                                 <label htmlFor="photo" className="form-label"><Icon icon="mdi:account-box" className="display-7" />&nbsp;&nbsp;Foto  Profil</label>
-                                <input type='file' id="foto" className='form-control' value={form.user_foto} onChange={handlerInput} name="user_foto" placeholder='350xxxxx' required />
+                                <input type='file' id="foto" className='form-control' value={form.user_foto} onChange={handlerInput} name="user_foto" accept='image/jpg, image/jpeg, image/png' required />
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -173,7 +175,7 @@ const FormUsers = () => {
                         </div>
                         <div className="col-md-12 mt-4">
                             <p align="right">
-                                <button type='submit' className='btn btn-success py-4' disabled={loading}>{loading ? "loading..." : "Simpan"}</button>
+                                <button type='submit' className='btn btn-success' disabled={loading}>{loading ? "loading..." : "Simpan"}</button>
                             </p>
                         </div>
                     </div>

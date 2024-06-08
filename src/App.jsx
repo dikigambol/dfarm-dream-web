@@ -19,7 +19,8 @@ import CageDetails from "./pages/operator/manageKandang/detailKandang"
 
 /* investor */
 import Investors from "./pages/investor/dashboard"
-import Reports from "./pages/investor/report"
+import InverstorCages from "./pages/investor/manageKandang"
+import Reports from "./pages/investor/manageKandang/report"
 import ProfileInvestor from "./pages/investor/profile"
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
 
         {/* Investor  */}
         <Route path="/investor" element={<Investors />} />
+        <Route path="/inverstor-cages" element={<InverstorCages />} />
         <Route path="/report" element={<Reports />} />
         <Route path="/investor/profile" element={<ProfileInvestor />} />
 

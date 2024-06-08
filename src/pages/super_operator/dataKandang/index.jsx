@@ -92,7 +92,7 @@ const DataCages = () => {
 
         <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <button type="button" className="btn btn-primary py-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah</button>
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah</button>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const DataCages = () => {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-success py-4">Simpan</button>
+                <button type="button" className="btn btn-success">Simpan</button>
               </div>
             </form>
           </div>  
