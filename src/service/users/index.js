@@ -23,7 +23,7 @@ export const useUser = () => {
   const getUser = async () => {
     setLoading(true);
     try {
-      const userRes = await axios.get("user", headers);
+      const userRes = await axios.get("v1/user", headers);
       setListUser(userRes.data);
       setLoading(false);
     } catch (error) {

@@ -2,12 +2,14 @@
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { deleteAllCookies, getTokenFromCookie } from '../utils/setToken';
+import { deleteAllCookies } from '../utils/setToken';
+import { isSuperOperator } from '../service/auth/validasi';
 
 const Dashboard = (props) => {
 
     const [curentActive, setCurentActive] = useState('');
-
+    const [isSuperOperator, setIsSuperOperator] = useState(false);
+    
     const logout = () => {
         deleteAllCookies()
         window.location.replace('/')
@@ -45,8 +47,9 @@ const Dashboard = (props) => {
         setCurentActive(props.active)
     }, [props])
 
-    return (
-        <div>
+    // if (isSuperOperator()) {
+        return (
+            <div>
                 <div className="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                     <aside className="left-sidebar">
                         <div className="sidebar">
@@ -131,8 +134,9 @@ const Dashboard = (props) => {
                         </div>
                     </div>
                 </div>
-        </div>
-    )
+            </div>
+        )
+    // }
 }
 
-export default Dashboard
+export default (Dashboard)

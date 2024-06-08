@@ -32,7 +32,8 @@ function App() {
         <Route path="/reset" element={<Reset />} />
 
         {/* Super Operator  */}
-        <Route path="/dashboard" element={<Dashboard />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
         <Route path="/form-users/:userId" element={<FormUsers />} />
         <Route path="/cages" element={<DataCages />} />
