@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from 'react'
 import { Cost_model } from '../../../service/cost_model'
-import Home from '../../../components/home'
 import CardInners from '../../../components/card-inners'
-
+import Operator from '../../../components/operator'
 
 const ManageKandang = () => {
   const { get_all, users } = Cost_model()
@@ -45,7 +44,7 @@ const ManageKandang = () => {
 
   )
 
-  return <Home content={element} active="manageCages" />
+  return <Operator content={element} active="manageCages" />
 }
 
 export default ManageKandang

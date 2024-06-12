@@ -90,12 +90,12 @@ ul {
     background-color: var(--light-color);
     padding: 10px 24px;
     line-height: 1;
-    border: 2px solid var(--yellow-color) !important;
-    color: var(--yellow-color);
+    border: 2px solid var(--primary-color) !important;
+    color: var(--primary-color);
 }
 
 .tap.active, .tap:focus, .tap:hover{
-    background-color: var(--yellow-color);
+    background-color: var(--primary-color);
     color: var(--light-color);
 }
 
@@ -136,6 +136,19 @@ ul {
     color: #A30D11;
 }
 
+.badge.badge-total {
+    box-shadow: rgba(173, 173, 173, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffff;
+    color: #eeeeee;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 10px 25px;
+    margin-bottom: -24.5px;
+    border-bottom: 1.5px solid rgb(190, 190, 190);
+}
+
 .heading-1 {
     font-size: 28px;
 }
@@ -165,29 +178,23 @@ ul {
 }
 
 .custom-scroll::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
+    width: 6px;
+    height: 6px;
 }
 
 .custom-scroll::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgb(236, 236, 236);
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    border: 3px solid transparent;
+    background-color: rgb(190, 190, 190);
+    border-radius: 30px;
     transition: all 0.3s ease-in-out;
 }
 
 .custom-scroll:hover::-webkit-scrollbar-thumb {
-    background-color: #777777;
-    border-color: var(--primary-color);
+    background-color: #989898;
 }
-
-/* .list-group-horizontal{
-    display: n;
-} */
 
 .list-group-horizontal .title{
     min-width: 150px;
@@ -201,9 +208,10 @@ ul {
 }
 
 .login .row .login-avatar img {
-    width: 50%;
     position: fixed;
-    margin-top: -100px;
+    width: 41%;
+    margin-top: 4%;
+    margin-left: 7%;
 }
 
 .login .row .login-form {
@@ -220,7 +228,7 @@ ul {
 }
 
 .login .row .login-form form {
-    padding: 5% 13%;
+    padding: 5% 15%;
     width: 100%;
 }
 
@@ -229,10 +237,10 @@ ul {
 }
 
 .login .row .login-form .logo .img-logo {
-    width: 75%;
+    width: 60%;
     display: block;
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 /* [ CUSTOM TABLE ] */
@@ -271,7 +279,7 @@ ul {
 }
 
 .btn-action:nth-child(1) {
-    color: var(--yellow-color);
+    color: var(--primary-color);
 }
 
 .btn-action:nth-child(1):hover {
@@ -313,7 +321,7 @@ ul {
 
 
 .left-sidebar .scroll-sidebar::-webkit-scrollbar {
-    width: 4px;
+    width: 8px;
 }
 
 .left-sidebar .scroll-sidebar::-webkit-scrollbar-track {
@@ -322,19 +330,22 @@ ul {
 }
 
 .left-sidebar .scroll-sidebar:hover::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+    background-color: #69b390;
+    border-radius: 10px;
 }
 
 .left-sidebar .scroll-sidebar::-webkit-scrollbar-thumb {
     background-color: transparent;
+    border-radius: 10px;
 }
 
 .left-sidebar .scroll-sidebar:hover::-webkit-scrollbar-thumb {
-    background-color: #999999;
+    background-color: #0e4f55;
+    border-radius: 10px;
 }
 
 .left-sidebar .scroll-sidebar::-webkit-scrollbar-thumb:hover {
-    background-color: #777777;
+    background-color: #0e4f55;
 }
 
 .menu-header {
@@ -356,7 +367,7 @@ ul {
 .brand-logo .minimize-btn .btn {
     background-color: rgba(255, 242, 229, 0.3);
     position: absolute;
-    padding: 1px 9px;
+    padding: 1px 9px 3px 9px;
     font-size: 20px;
     right: -14px;
     color: var(--yellow-color);
@@ -372,7 +383,7 @@ ul {
 .brand-logo .responsive-menu-btn .btn {
     background-color: rgba(255, 242, 229, 0.3);
     position: absolute;
-    padding: 1px 9px;
+    padding: 1px 9px 3px 9px;
     font-size: 20px;
     right: 0px;
     color: var(--yellow-color);
@@ -388,8 +399,6 @@ ul {
     transition: all 0.5s ease-in-out;
 }
 
-.maximize-btn .btn {}
-
 .brand-logo .minimize-btn .btn:focus {
     background-color: rgba(255, 242, 229, 0.3) !important;
     border-color: transparent !important;
@@ -402,7 +411,7 @@ ul {
 }
 
 .brand-logo .logo-img .img-fluid {
-    width: 35px;
+    width: 200px;
 }
 
 .brand-logo .logo-img span {
@@ -754,4 +763,93 @@ a.more-link {
 
 .forget-sandi {
     margin-top: -12px;
+}
+
+.offcanvas.offcanvas-end {
+    border-left: none !important;
+}
+
+.text-danger {
+    color: var(--marron-color);
+}
+
+.text-icon {
+    margin-top: -3.2px;
+}
+
+.list-group-item {
+    padding: 5px 10px 5px 0px;
+}
+
+@media (max-width: 575.98px) {
+    .list-group-horizontal .list-group-item.content {
+        padding-top: 5px;
+        padding-left: 0px !important;
+    }
+}
+
+.text-warning {
+    color: var(--yellow-color);
+}
+
+.custom-scroll > button {
+    flex-shrink: 0;
+}
+
+@media (max-width: 575.98px) {
+    .custom-scroll::-webkit-scrollbar {
+        display: none;
+    }
+    .btn-biaya{
+        width: 100% !important;
+    }
+}
+
+.bg-success {
+    background-color: #3d8160 !important;
+}
+
+.bg-warning{
+    background-color: #FFCC4A !important;
+}
+
+.bg-danger {
+    background-color: #ED6363 !important;
+}
+
+.btn-info-ternak {
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    color: var(--primary-color);
+    padding: 0;
+    margin-bottom: -15px;
+}
+
+hr {
+    border-top: 1.5px solid rgb(190, 190, 190);
+}
+
+.bg-ternak {
+    background-image: url('/bg-ternak.jpg');
+    background-position-y: 70%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.rdt_TableCol div{
+    white-space: unset !important;
+    overflow: unset !important;
+    text-overflow: unset !important;
+    line-height: 20px;
+    padding: 10px 0;
+}
+
+.rdt_TableCell div{
+    white-space: unset !important;
+    overflow: unset !important;
+    text-overflow: unset !important;
+    line-height: 20px;
+    padding: 10px 0;
+    width: 100%;
 }

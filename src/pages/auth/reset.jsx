@@ -29,12 +29,12 @@ export default function Reset() {
         // periksa password dan password konfirmasi tidak sama
         if (formReset.password !== formReset.newPassword) {
             swal({
-				title: "Sandi dan konfirmasi sandi berbeda!",
-				text: "menutup jendela...",
-				icon: "warning",
-				timer: 3000,
-				buttons: false,
-			})
+                title: "Sandi dan konfirmasi sandi berbeda!",
+                text: "menutup jendela...",
+                icon: "warning",
+                timer: 3000,
+                buttons: false,
+            })
 
             return
         }
@@ -56,12 +56,10 @@ export default function Reset() {
                     <div className="card border-0 shadow-sm">
                         <div className="card-body">
                             <form onSubmit={HandleReset} method="POST">
-                                
                                 <div className="logo mb-4">
-                                    <img src="logo_light.png" alt="Farm Dream" className="img-fluid img-logo" />
-                                    <h2 className="fw-semibold">Buat Sandi</h2>
+                                    <img src="logo-light.svg" alt="Farm Dream" className="img-fluid img-logo" />
+                                    <h2 className="fw-semibold text-success">Buat Sandi</h2>
                                 </div>
-
                                 <div className="mb-4">
                                     <label htmlFor="password" className="form-label">Sandi Baru</label>
                                     <input type="text"
@@ -72,7 +70,6 @@ export default function Reset() {
                                         onChange={handleInputForget}
                                         required />
                                 </div>
-
                                 <div className="mb-4">
                                     <label htmlFor="newPassword" className="form-label">Konfirmasi Sandi</label>
                                     <input type="text"
@@ -84,7 +81,7 @@ export default function Reset() {
                                         required />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Ubah Sandi"}</button>
+                                <button type="submit" className="btn btn-success w-100 mb-5" disabled={loading}>{loading ? "loading..." : "Ubah Sandi"}</button>
                             </form>
                         </div>
                     </div>

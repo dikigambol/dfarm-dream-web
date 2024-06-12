@@ -64,13 +64,13 @@ const DataCost = () => {
 
   const columns = [
     { name: 'No', selector: row => row.no, width: "80px" },
-    { name: 'Nama Biaya', selector: row => row.fee },
+    { name: 'Komponen Biaya', selector: row => row.fee },
     { name: 'Status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
   ];
   const element = (
     <div className="dashboard">
       <h3 className="mb-4 fw-bolder">
-        Kelola Biaya
+        Kelola Komponen Biaya
       </h3>
       <div className="row justify-content-between">
         <div className="col-md-4">
@@ -111,7 +111,7 @@ const DataCost = () => {
                 <div className='row'>
                   <div className="col-md-6">
                     <div className="mb-3">
-                      <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:alphabetical" className="display-7" />&nbsp;&nbsp;Nama Biaya</label>
+                      <label htmlFor="noidentitas" className="form-label"><Icon icon="mdi:alphabetical" className="display-7" />&nbsp;&nbsp;Nama Komponen Biaya</label>
                       <input type='text' className='form-control' name='nama_biaya' value={form.nama_biaya} onChange={handlerInput} placeholder='Ayam Afkir' required />
                     </div>
                   </div>

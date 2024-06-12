@@ -20,8 +20,10 @@ import CageDetails from "./pages/operator/manageKandang/detailKandang"
 /* investor */
 import Investors from "./pages/investor/dashboard"
 import InverstorCages from "./pages/investor/manageKandang"
-import Reports from "./pages/investor/manageKandang/report"
 import ProfileInvestor from "./pages/investor/profile"
+import DetailCages from "./pages/investor/manageKandang/detailCages"
+import ProfileOperator from "./pages/operator/profile"
+import ProfileSuperOperator from "./pages/super_operator/profile"
 
 function App() {
   return (
@@ -38,19 +40,19 @@ function App() {
         <Route path="/form-users/:userId" element={<FormUsers />} />
         <Route path="/cages" element={<DataCages />} />
         <Route path="/cost" element={<DataCost />} />
-        <Route path="/users/profile" element={<ProfileInvestor />} />
+        <Route path="/users-profile" element={<ProfileSuperOperator />} />
 
         {/* Operator  */}
         <Route path="/home" element={<Homes />} />
         <Route path="/manage-cages" element={<ManageKandang />} />
         <Route path="/detail-cages" element={<CageDetails />} />
-        <Route path="/home/profile" element={<ProfileInvestor />} />
+        <Route path="/operator-profile" element={<ProfileOperator />} />
 
         {/* Investor  */}
         <Route path="/investor" element={<Investors />} />
-        <Route path="/inverstor-cages" element={<InverstorCages />} />
-        <Route path="/report" element={<Reports />} />
-        <Route path="/investor/profile" element={<ProfileInvestor />} />
+        <Route path="/investor-cages" element={<InverstorCages />} />
+        <Route path="/cages-detail" element={<DetailCages />} />
+        <Route path="/investor-profile" element={<ProfileInvestor />} />
 
         <Route path="/not-found" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/not-found" replace />} />

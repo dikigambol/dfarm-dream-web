@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 const initialConfig = {
     title: "",
     pagination: false,
-    paginationRowsPerPageOptions: [5, 10, 15],
+    paginationRowsPerPageOptions: [10, 50, 100],
     striped: false,
     noHeader: false,
     fixedHeader: false,
@@ -35,6 +35,7 @@ const DataTables = ({ columns, datas, options }) => {
             highlightOnHover={config.highlightOnHover}
             selectableRows={config.selectableRows}
             selectableRowsNoSelectAll={config.selectableRowsNoSelectAll}
+            responsive={true}
         />
     }
 
@@ -55,7 +56,7 @@ const DataTables = ({ columns, datas, options }) => {
         
         if (config.edit.status || config.delete.status) {
             const actionsColumn = {
-                name: "Actions",
+                name: "Aksi",
                 selector: "actions",
                 cell: (row) => (
                     <div className="d-flex justify-content-center align-items-center">

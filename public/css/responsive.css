@@ -26,14 +26,15 @@
 @media (max-width: 767.98px) {
     .content-wrapper {
         width: 100vw;
-        padding: 30px;
+        padding: 25px;
     }
 }
 
 @media (max-width: 991.98px) {
     .login .row .login-form{
-        background: linear-gradient(rgba(255, 255, 255, 0.884), rgb(255, 255, 255)), url(../ayam-telur.jpg);
-        background-size: 150px;
+        background: linear-gradient(rgba(255, 255, 255, 0.884), rgb(255, 255, 255)), url(../ayam-telur.png);
+        background-size: 120%;
+        background-repeat: no-repeat;
     }
     .login .row .login-form form{
         padding: 0% 10%; 

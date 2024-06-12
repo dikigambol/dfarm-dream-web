@@ -1,12 +1,8 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
 import { useState } from "react";
 
-
 export const Cages_model = () => {
-
     const [users, setUsers] = useState([]);
-
     const data = [
         {
             no: "1",
@@ -24,12 +20,10 @@ export const Cages_model = () => {
         }
     ]
 
-
     const get_all = async () => {
         // const response = await axios.get(`${process.env.REACT_APP_API_URL}/dashboard`);
         setUsers(data);
     }
-
 
     const create = async (data) => {
         // return await axios.post(`${process.env.REACT_APP_API_URL}/dashboard`, data);

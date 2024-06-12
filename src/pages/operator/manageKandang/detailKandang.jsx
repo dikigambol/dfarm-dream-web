@@ -1,13 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { Cost_model } from '../../../service/cost_model'
-import Home from '../../../components/home'
-import DataTables from '../../../components/table'
 import { Link } from 'react-router-dom'
-
+import Operator from '../../../components/operator'
+import DataTables from './keuangan/tabel'
 
 const CageDetails = () => {
-
+  const [collapse, setCollapse] = useState(false)
   const { get_all, users } = Cost_model()
 
   const editData = (id) => {
@@ -23,131 +22,101 @@ const CageDetails = () => {
   }, [])
 
   const columns = [
-    { name: 'Transaction', selector: row => row.fee },
     { name: 'Tanggal', selector: row => row.date },
-    { name: 'Amount', selector: row => row.amount },
-    { name: 'Status', selector: row => row.status, cell: row => <div dangerouslySetInnerHTML={{ __html: row.status }} /> },
+    { name: 'Transaksi', selector: row => row.fee },
+    { name: 'Jumlah', selector: row => row.amount },
   ];
   const element = (
     <div className="dashboard">
-      <div className="row mb-5">
-        <div className="col-lg-7">
+      <div className="row mb-3 p-0">
+        <div className="col-lg-12 mb-3">
           <div className="card border-0 bg-transparant">
-            <div className="card-body text-light bg-color-primary lh-1 px-4 rounded-4">
-              <span className="d-block my-2 fs-6">Kandang</span>
-              <span className="d-block my-2 fs-4 fw-semibold">Nama Kandang</span>
+            <div className="card-body text-light lh-1 px-4 rounded-4 bg-ternak">
+              <p className="d-block my-2 fs-6 mb-3"><Icon icon="mdi:barn" className="text-icon" />&nbsp;&nbsp;kandang</p>
+              <p className="d-block my-2 fs-4 fw-semibold">Kandang Sukses Megantara</p>
+              <p className="d-block my-2 fs-8 mt-3">KD002</p>
             </div>
-
-            <div className="card-body">
-              <span className="fs-6 fw-semibold color-primary d-block">Detail Kandang</span>
-
-              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
-                <li className="list-group-item border-0 bg-transparant title">Anak Kandang</li>
-                <li className="list-group-item border-0 bg-transparant separat">:</li>
-                <li className="list-group-item border-0 bg-transparant content">Khusni Ridho</li>
-              </ul>
-
-              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
-                <li className="list-group-item border-0 bg-transparant title">Kode</li>
-                <li className="list-group-item border-0 bg-transparant separat">:</li>
-                <li className="list-group-item border-0 bg-transparant content">KD002</li>
-              </ul>
-              
-              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
-                <li className="list-group-item border-0 bg-transparant title">Lokasi</li>
-                <li className="list-group-item border-0 bg-transparant separat">:</li>
-                <li className="list-group-item border-0 bg-transparant content">Jl. Pejuang No.45, Kulur, Kec. Majalengka, Kabupaten Majalengka, Jawa Barat 45411</li>
-              </ul>
-              
-              <ul className="list-group list-group-horizontal mb-2 mb-md-0">
-                <li className="list-group-item border-0 bg-transparant title">Luas</li>
-                <li className="list-group-item border-0 bg-transparant separat">:</li>
-                <li className="list-group-item border-0 bg-transparant content">500 M <sup>2</sup></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-5">
-          <div className="card border-0 mb-3">
-            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
-              <div className="icon">
-                <Icon icon="healthicons:animal-chicken" className="display-6" />
+            <div className="col-lg-12 card-thumbnail mt-3">
+              <div className="row">
+                <div className="col-lg-4 pe-lg-0 mb-lg-0 mb-3">
+                  <div className="d-flex align-items-center">
+                    <div className="icon bg-warning">
+                      <Icon icon="openmoji:chicken" className="fs-1" />
+                    </div>
+                    <div className="content">
+                      <h6 className="sub">Populasi</h6>
+                      <h3 className="amout">100</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4 p-lg-0 mb-lg-0 mb-3">
+                  <div className="d-flex align-items-center">
+                    <div className="icon bg-success">
+                      <Icon icon="fa6-solid:percent" className="fs-4 text-white" />
+                    </div>
+                    <div className="content">
+                      <h6 className="sub">Ayam Hidup</h6>
+                      <h3 className="amout">50%</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4 ps-lg-0 mb-lg-0">
+                  <div className="d-flex align-items-center">
+                    <div className="icon bg-danger">
+                      <Icon icon="fa6-solid:percent" className="fs-4 text-white" />
+                    </div>
+                    <div className="content">
+                      <h6 className="sub">Ayam Mati</h6>
+                      <h3 className="amout">50%</h3>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="content">
-                <span className="d-block my-2 fs-6">Populasi Ayam</span>
-                <span className="d-block my-2 fs-5 fw-semibold">800</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="card border-0 mb-3">
-            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
-              <div className="icon text-warning">
-              <Icon icon="heroicons-solid:light-bulb" className="display-6" />
-              </div>
-              <div className="content">
-                <span className="d-block my-2 fs-6">DOC</span>
-                <span className="d-block my-2 fs-5 fw-semibold">400</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="card border-0 mb-3">
-            <div className="card-body lh-1 px-4 rounded-4 shadow-sm d-flex">
-              <div className="icon text-danger">
-                <Icon icon="material-symbols:light-off" className="display-6" />
-              </div>
-              <div className="content">
-                <span className="d-block my-2 fs-6">Afkir</span>
-                <span className="d-block my-2 fs-5 fw-semibold">100</span>
+              <hr />
+              <button className="btn-info-ternak fw-semibold d-block"
+                data-bs-toggle="collapse" href="#info-ternak" role="button" aria-expanded="false" aria-controls="collapseExample"
+                onClick={() => setCollapse(!collapse)}
+              >
+                informasi kandang
+                <br />
+                <Icon icon={`eva:arrow-${collapse ? 'up' : 'down'}-fill`} style={{ marginTop: "-15px" }} />
+              </button>
+              <div className="collapse mt-3" id="info-ternak">
+                <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                  <li className="list-group-item border-0 bg-transparant title">Lokasi</li>
+                  <li className="list-group-item border-0 bg-transparant separat">:</li>
+                  <li className="list-group-item border-0 bg-transparant content">Jl. Pejuang No.45, Kulur, Kec. Majalengka, Kabupaten Majalengka, Jawa Barat 45411</li>
+                </ul>
+                <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                  <li className="list-group-item border-0 bg-transparant title">Luas</li>
+                  <li className="list-group-item border-0 bg-transparant separat">:</li>
+                  <li className="list-group-item border-0 bg-transparant content">500 M <sup>2</sup></li>
+                </ul>
+                <ul className="list-group list-group-horizontal mb-2 mb-md-0">
+                  <li className="list-group-item border-0 bg-transparant title">Anak Kandang</li>
+                  <li className="list-group-item border-0 bg-transparant separat">:</li>
+                  <li className="list-group-item border-0 bg-transparant content">Khusni Ridho</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
-      <div className="row mb-4">
-        <div className="d-inline-flex overflow-auto pb-3 custom-scroll">
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold active">Keuangan</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">SHM</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
-          <button className="tap tap-primary rounded-pill mx-2 fs-6 fw-semibold">Lainnya</button>
+      <div className="row mb-3">
+        <div className="d-inline-flex overflow-x-auto pb-3 custom-scroll gap-3">
+          <button className="tap tap-primary rounded-pill fs-6 fw-semibold active"><Icon icon="solar:hand-money-outline" className='text-icon' />&nbsp;&nbsp;Keuangan</button>
+          <button className="tap tap-primary rounded-pill fs-6 fw-semibold"><Icon icon="fluent-emoji-high-contrast:chicken" className='text-icon' />&nbsp;&nbsp;Data Populasi</button>
+          <button className="tap tap-primary rounded-pill fs-6 fw-semibold"><Icon icon="mingcute:document-line" className='text-icon' />&nbsp;&nbsp;SHM</button>
         </div>
       </div>
 
       <div className="row justify-content-between">
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="mb-3 d-flex align-items-center">
             <input type="text" className="form-control" placeholder="Cari biaya..." />
-            <button className="bg-transparant ms-2 fs-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><Icon icon="ion:filter" /></button>
+            <button className="bg-transparant ms-3 fs-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"><Icon icon="ion:filter" /></button>
+            {/* canvas filter tanggal  */}
             <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
               <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasRightLabel">Filters</h5>
@@ -172,9 +141,23 @@ const CageDetails = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="mb-3 d-flex justify-content-end">
-            <Link to="" className="btn btn-primary">Tambah Biaya</Link>
+            <button className="btn btn-primary btn-biaya"><Icon icon="majesticons:money-plus" />&nbsp;&nbsp;Tambah Biaya</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="row align-items-center mb-4">
+        <div className="col-md-12">
+          <div className="d-block badge badge-total text-start d-flex justify-content-between">
+            <div className="content">
+              <small className="text-dark d-block py-2 fs-6">Total</small>
+              <small className="text-success d-block py-2 fs-5 fw-semibold">Rp. 90.000.000</small>
+            </div>
+            <div className="icon bg-transparant text-success bg-dark m-0">
+              <Icon icon="solar:wallet-money-bold-duotone" className="display-6" />
+            </div>
           </div>
         </div>
       </div>
@@ -197,7 +180,7 @@ const CageDetails = () => {
 
   )
 
-  return <Home content={element} active="manageCages" />
+  return <Operator content={element} active="manageCages" />
 }
 
 export default CageDetails

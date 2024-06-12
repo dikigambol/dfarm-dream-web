@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Cages_model } from '../../../service/cages_model'
 import Dashboard from '../../../components/dashboard'
-import DataTables from '../../../components/table'
-import { Link } from 'react-router-dom'
 import { useKandang } from '../../../service/kandang'
 import { Icon } from '@iconify/react/dist/iconify.js'
-
+import DataTables from './tableKandang'
 
 const initialState = {
   kandang_id: "",
@@ -15,8 +13,8 @@ const initialState = {
   kandang_luas_tanah: "",
   kandang_luas_bangunan: "",
   kandang_isi: "",
-  kandang_alamat:"",
-  kandang_keterangan:""
+  kandang_alamat: "",
+  kandang_keterangan: ""
 }
 
 const DataCages = () => {
@@ -76,8 +74,8 @@ const DataCages = () => {
     { name: 'Nama Kandang', selector: row => row.name },
     { name: 'Blok', selector: row => row.block },
     { name: <span dangerouslySetInnerHTML={{ __html: 'Luas m<sup>2</sup>' }} />, selector: row => row.area },
-    { name: 'Isi', selector: row => row.volume },
   ];
+
   const element = (
     <div className="dashboard">
       <h3 className="mb-4 fw-bolder">
@@ -92,7 +90,7 @@ const DataCages = () => {
 
         <div className="col-md-4">
           <div className="mb-3 d-flex justify-content-end">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah</button>
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kandang</button>
           </div>
         </div>
       </div>
@@ -123,14 +121,14 @@ const DataCages = () => {
                 <div className='row'>
                   <div className="col-md-6">
                     <div className="mb-3">
-                      <label htmlFor="noreg" className="form-label"><Icon icon="mdi:barcode-scan" className="display-7" />&nbsp;&nbsp;Nomor Registrai</label>
+                      <label htmlFor="noreg" className="form-label"><Icon icon="mdi:barcode-scan" className="display-7" />&nbsp;&nbsp;Nomor Registrasi</label>
                       <input type='text' className='form-control' name='kandang_noreg' value={form.kandang_noreg} onChange={handlerInput} placeholder='KDG/123' required />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="namakandang" className="form-label"><Icon icon="mdi:alphabetical" className="display-7" />&nbsp;&nbsp;Nama Kandang</label>
-                      <input type='text' className='form-control' name='kandang_nama' value={form.kandang_nama}  onChange={handlerInput} placeholder='Sanjaya' required />
+                      <input type='text' className='form-control' name='kandang_nama' value={form.kandang_nama} onChange={handlerInput} placeholder='Sanjaya' required />
                     </div>
                   </div>
                 </div>
@@ -138,13 +136,13 @@ const DataCages = () => {
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="blokkavling" className="form-label"><Icon icon="mdi:pound-box" className="display-7" />&nbsp;&nbsp;Blok Kavling</label>
-                      <input type="text" className='form-control' name="kandang_blok_kavling" value={form.kandang_blok_kavling}  onChange={handlerInput} placeholder='A12' required/>
+                      <input type="text" className='form-control' name="kandang_blok_kavling" value={form.kandang_blok_kavling} onChange={handlerInput} placeholder='A12' required />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="luastanag" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Luas Tanah  m<sup>2</sup></label>
-                      <input type="text" className='form-control' name="kandang_luas_tanah" value={form.kandang_luas_tanah}  onChange={handlerInput} placeholder='300' required/>
+                      <input type="text" className='form-control' name="kandang_luas_tanah" value={form.kandang_luas_tanah} onChange={handlerInput} placeholder='300' required />
                     </div>
                   </div>
                 </div>
@@ -152,27 +150,27 @@ const DataCages = () => {
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="luasbangunan" className="form-label"><Icon icon="mdi:wall" className="display-7" />&nbsp;&nbsp;Luas Bangunan</label>
-                      <input type="text" className='form-control' name="kandang_luas_bangunan" value={form.kandang_luas_bangunan}  onChange={handlerInput} placeholder='200' required/>
+                      <input type="text" className='form-control' name="kandang_luas_bangunan" value={form.kandang_luas_bangunan} onChange={handlerInput} placeholder='200' required />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="mb-3">
                       <label htmlFor="kandangisi" className="form-label"><Icon icon="mdi:database" className="display-7" />&nbsp;&nbsp;Kapasitas Isi</label>
-                      <input type="text" className='form-control' name="kandang_isi" value={form.kandang_isi}  onChange={handlerInput} placeholder='1000' required/>
+                      <input type="text" className='form-control' name="kandang_isi" value={form.kandang_isi} onChange={handlerInput} placeholder='1000' required />
                     </div>
                   </div>
                 </div>
                 <div className='row'>
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <div className="mb-3">
                       <label htmlFor="alamat" className="form-label"><Icon icon="mdi:google-maps" className="display-7" />&nbsp;&nbsp;Alamat</label>
-                      <input type="text" className='form-control' name="kandang_alamat" value={form.kandang_alamat}  onChange={handlerInput} placeholder='Jl. Panjaitan...'required />
+                      <input type="text" className='form-control' name="kandang_alamat" value={form.kandang_alamat} onChange={handlerInput} placeholder='Jl. Panjaitan...' required />
                     </div>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <div className="mb-3">
                       <label htmlFor="keterangan" className="form-label"><Icon icon="mdi:note" className="display-7" />&nbsp;&nbsp;Keterangan</label>
-                      <input type="text" className='form-control' name="kandang_keterangan" value={form.kandang_keterangan}  onChange={handlerInput} placeholder='Keterangan' required />
+                      <input type="text" className='form-control' name="kandang_keterangan" value={form.kandang_keterangan} onChange={handlerInput} placeholder='Keterangan' required />
                     </div>
                   </div>
                 </div>
@@ -181,10 +179,9 @@ const DataCages = () => {
                 <button type="button" className="btn btn-success">Simpan</button>
               </div>
             </form>
-          </div>  
+          </div>
         </div>
       </div>
-
     </div>
 
   )

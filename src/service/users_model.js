@@ -20,15 +20,15 @@ export const Users_model = () => {
             no: "1",
             name: "dendik",
             role: "Operator",
-            username: "uvuvwewe",
+            username: "dendik",
             pass: "ygmeg",
             status: '<span class="badge badge-fail rounded-pill">Non Active</span>',
         },
         {
             no: "2",
-            name: "WP",
+            name: "ridho",
             role: "Investor",
-            username: "uvuvwewe",
+            username: "ridho",
             pass: "ygmeg",
             status: '<span class="badge badge-success rounded-pill">Active</span>',
         }
